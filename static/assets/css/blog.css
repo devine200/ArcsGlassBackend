@@ -1,0 +1,182 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+}
+
+/*Text Selection Color*/
+::selection {
+    background: #1b1b1b;
+    color: #fbfbfb;
+}
+
+::-moz-selection {
+    background: #1b1b1b;
+    color: #fbfbfb;
+}
+.nav__toggle i {
+    color: var(--second-color);
+    font-size: 30px;
+  }
+  
+/*Reset apple form styles*/
+input,
+textarea,
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    background-image: none;
+}
+
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.hero__text {
+    pointer-events: none;
+}
+
+.blog-info {
+    position: fixed;
+    right: 2%;
+    top: 53%;
+    transform: translateY(-50%);
+    width: 700px;
+    background-color: white;
+    line-height: 2;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-info p {
+    color: var(--title-color);
+    padding: 10px 20px 0px 20px;
+    min-height: 100px;
+}
+
+.blog-title {
+    color: var(--title-color);
+    font-size: 30px;
+    padding: 20px;
+}
+
+
+.btn-icon-blog {
+    background-color: var(--second-color);
+    border-radius: 50%;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 10px;
+}
+
+.read-more-blog {
+    padding-bottom: 20px;
+}
+
+.read-arr {
+    font-size: 20px;
+}
+
+.blog-read-more {
+    display: flex;
+    align-items: center;
+    color: var(--second-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.single-blog-det p {
+    font-size: 1px;
+}
+
+.blog-dets-one {
+    padding-right: 30px;
+}
+
+.blog-dets-one p {
+    margin-bottom: 20px;
+}
+
+.blog-dets-info {
+    font-size: 16px;
+    line-height: 2;
+    padding-left: 30px;
+}
+
+.t-blog-info {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+@media (max-width: 992px) {
+    .t-blog-info {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .blog-info {
+        right: 3%;
+        left: 3%;
+        width: 94%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .blog-info p {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+
+    .blog-title {
+        font-size: 25px;
+        padding: 15px 20px;
+    }
+
+    .read-arr {
+        font-size: 12px;
+    }
+
+    .btn-icon-blog {
+        width: 25px;
+        height: 25px;
+    }
+
+    .blog-dets-one {
+        padding-right: 0px;
+    }
+
+    .blog-dets {
+        gap: 40px;
+        padding: 0px 20px;
+    }
+
+    .blog-dets-info {
+        font-size: 15px;
+        padding-left: 10px;
+    }
+}

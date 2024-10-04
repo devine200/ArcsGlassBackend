@@ -1,0 +1,186 @@
+{% extends 'home_template.html' %}
+{% load static %}
+{% block head %}
+  <title>PROPERTIES || ARCS N GLASS</title>
+  <link rel="stylesheet" href="{% static './assets/css/properties.css' %}" />
+{% endblock %}
+{% block content %}
+    <section class="property-section">
+      <div class="overlay"></div>
+      <img
+        src="{% static './images/projects/ksc x.jpg' %}"
+        alt="About Us Background"
+        class="background-img"
+      />
+      <div class="content">
+        <h1>PROPERTY</h1>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <h1>Find your next place to live</h1>
+      <div class="dropdown-container">
+        <div class="dropdown">
+          <label for="looking-for">Looking for</label>
+          <select id="looking-for">
+            <option value="">Select...</option>
+            <option value="buy">Buy</option>
+            <option value="rent">Rent</option>
+          </select>
+        </div>
+        <div class="dropdown">
+          <label for="location">Location</label>
+          <select id="location">
+            <option value="">Select...</option>
+            <option value="new-york">New York</option>
+            <option value="california">California</option>
+          </select>
+        </div>
+        <div class="dropdown">
+          <label for="property-type">Property Type</label>
+          <select id="property-type">
+            <option value="">Select...</option>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+          </select>
+        </div>
+        <div class="dropdown">
+          <label for="price">Price</label>
+          <select id="price">
+            <option value="">Select...</option>
+            <option value="low">Below $500,000</option>
+            <option value="high">Above $500,000</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card-container">
+        <!-- Card 1 -->
+        <a href="{% url 'property_info' %}" class="card">
+          <img
+            src="{% static './images/projects/gv iv.jpg' %}"
+            alt="Property 1"
+            class="card-img"
+          />
+          <div class="card-content">
+            <p>$54,495,913.00</p>
+            <h3>The Glass Vine</h3>
+            <p>Dubai, United Arab Emirates</p>
+            <div class="card-info">
+              <div class="icon-info">
+                <span>🛏️ 11</span>
+                <span>🛁 16</span>
+                <span>🌞 28000</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="{% url 'property_info' %}" class="card">
+          <img
+            src="{% static './images/projects/florence_h.JPG' %}"
+            alt="Property 2"
+            class="card-img"
+          />
+          <div class="card-content">
+            <p>$54,495,913.00</p>
+            <h3>Florence H</h3>
+            <p>Dubai, United Arab Emirates</p>
+            <div class="card-info">
+              <div class="icon-info">
+                <span>🛏️ 13</span>
+                <span>🛁 16</span>
+                <span>🌞 23000</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <img
+            src="{% static './images/projects/ksc x.jpg' %}"
+            alt="Property 3"
+            class="card-img"
+          />
+          <div class="card-content">
+            <p>$54,495,913.00</p>
+            <h3>King Smart City</h3>
+            <p>Dubai, United Arab Emirates</p>
+            <div class="card-info">
+              <div class="icon-info">
+                <span>🛏️ 12</span>
+                <span>🛁 16</span>
+                <span>🌞 33530</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="{% static './images/projects/days&nite.jpg' %}"
+            alt="Property 1"
+            class="card-img"
+          />
+          <div class="card-content">
+            <p>$54,495,913.00</p>
+            <h3>Day & Nite</h3>
+            <p>Dubai, United Arab Emirates</p>
+            <div class="card-info">
+              <div class="icon-info">
+                <span>🛏️ 11</span>
+                <span>🛁 16</span>
+                <span>🌞 28000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <img
+            src="{% static './images/projects/The Grandeur.JPG' %}"
+            alt="Property 2"
+            class="card-img"
+          />
+          <div class="card-content">
+            <p>$54,495,913.00</p>
+            <h3>The Grandeur</h3>
+            <p>Dubai, United Arab Emirates</p>
+            <div class="card-info">
+              <div class="icon-info">
+                <span>🛏️ 13</span>
+                <span>🛁 16</span>
+                <span>🌞 23000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <img
+            src="{% static './images/projects/a19.jpg' %}"
+            alt="Property 3"
+            class="card-img"
+          />
+          <div class="card-content">
+            <p>$54,495,913.00</p>
+            <h3>A 19</h3>
+            <p>Dubai, United Arab Emirates</p>
+            <div class="card-info">
+              <div class="icon-info">
+                <span>🛏️ 12</span>
+                <span>🛁 16</span>
+                <span>🌞 33530</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% endblock %}

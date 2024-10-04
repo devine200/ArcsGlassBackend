@@ -1,0 +1,64 @@
+{% extends 'home_template.html' %}
+{% load static %}
+{% block head %}
+  <title>PROJECT INFO || ARCS N GLASS</title>
+  <link rel="stylesheet" href="{% static './assets/css/lightbox.css' %}" />
+  <link rel="stylesheet" href="{% static './assets/css/projects.css' %}" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="./assets/image/ArcsGlassLogo-Primary-2048x2048.png" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+{% endblock %}
+{% block content %}
+  <section class="project-section">
+    <div class="overlay"></div>
+    <img src="{% static './images/projects/gv iv.jpg' %}" alt="About Us Background" class="background-img" />
+    <div class="content">
+      <h1>THE GLASS VINE</h1>
+    </div>
+  </section>
+
+  <div class="project-details">
+    <h1>Project Description</h1>
+    <p>
+      Our unique 1, 2, and 3 bedroom apartments located at Oniru sets the pace for what luxury and comfort looks like. The design is exquisite and highly functional. <br />
+      Features include ensuite bathrooms, fully fitted kitchen, an elevator, a suspended pool, and our favorite feature which is the rooftop garden just overlooking the Atlantic giving residents the access to Lagos’s major tourist attraction.
+    </p>
+  </div>
+
+  <div class="card-container carousel-item">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="{% static './images/projects/gv iv.jpg' %}" alt="Card 1 Image" />
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="{% static './images/projects/gv xi.jpg' %}" alt="Card 2 Image" />
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="{% static './images/projects/gv viii.jpg' %}" alt="Card 3 Image" />
+    </div>
+
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="{% static './images/projects/gv iv.jpg' %}" alt="Card 1 Image" />
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="{% static './images/projects/gv xi.jpg' %}" alt="Card 2 Image" />
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="{% static './images/projects/gv viii.jpg' %}" alt="Card 3 Image" />
+    </div>
+  </div>
+  {% block script %}
+    <script src="./assets/js/lightbox-plus-jquery.js"></script>
+    <script src="{% static './assets/js/projectinfo.js' %}"></script>
+  {% endblock %}
+{% endblock %}

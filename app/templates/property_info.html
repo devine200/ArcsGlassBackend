@@ -1,0 +1,69 @@
+{% extends 'home_template.html' %}
+{% load static %}
+{% block head %}
+  <title>PROPERTIES INFO || ARCS N GLASS</title>
+  <link rel="stylesheet" href="{% static './assets/css/properties.css' %}" />
+  <link rel="stylesheet" href="{% static './assets/css/lightbox.css' %}" />
+  <link rel="stylesheet" href="{% static './assets/css/propertyInfo.css' %}" />
+{% endblock %}
+{% block content %}
+  <section class="property-section">
+    <div class="content">
+      <h2>Signature Villas Frond H, Palm Jumeirah</h2>
+      <p>Dubai, United Arab Emirates.</p>
+      <h3>$54,495,913.00 | AED 200,000,000.71</h3>
+    </div>
+  </section>
+
+  <div class="gallery-container">
+    <!-- Featured Image -->
+    <div class="featured-image">
+      <img src="https://admin.euroluxuryproperties.com/media/estate_cover_photo/villas.webp" alt="Featured Property" />
+    </div>
+
+    <!-- Thumbnails Section -->
+    <div class="thumbnails">
+      <a href="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_1.webp" data-lightbox="image-1" class="gallery-item w-inline-block w-lightbox"><img src="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_1.webp" alt="" class="image-38" /></a>
+      <a href="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_2.webp" data-lightbox="image-1" class="gallery-item w-inline-block w-lightbox"><img src="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_2.webp" alt="" class="image-38" /></a>
+      <a href="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_3.webp" data-lightbox="image-1" class="gallery-item w-inline-block w-lightbox"><img src="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_3.webp" alt="" class="image-38" /></a>
+      <a href="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_4.webp" data-lightbox="image-1" class="gallery-item w-inline-block w-lightbox"><img src="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_4.webp" alt="" class="image-38" /></a>
+      <a href="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_6.webp" data-lightbox="image-1" class="gallery-item w-inline-block w-lightbox"><img src="https://admin.euroluxuryproperties.com/media/estate_gallery/imagereader_6.webp" alt="" class="image-38" /></a>
+    </div>
+  </div>
+
+  <section class="property-info">
+    <div>
+      <h1>Details</h1>
+      <div class="price">$54,495,913.00 | AED 200,000,000.71</div>
+      <div class="details">
+        <div>🚗 11</div>
+        <div>🛏 16</div>
+        <div>🧊 28000</div>
+        <div>🏠 3</div>
+        <div>📅 2024</div>
+      </div>
+    </div>
+
+    <div class="desc-section">
+      <h2>Description</h2>
+      <div class="description">
+        <p>This is a one-of-a-kind luxury property. This beachfront mansion is a custom-built luxury villa has that been artfully designed to create a wonderful space and ultra-luxurious living experience. The interior is breath-takingly impressive with a host of designer brands such as Versace, Hermes, Roberto Cavalli and Fendi making an appearance. The living areas are extremely spacious with triple height ceilings and large windows that look out over the sea toward Atlantis The Royal. To ensure residents can entertain in style, the villa has a hotel-standard industrial kitchen in the basement, as well as a food lift, additional pantry and an al fresco summer kitchen on the ground floor. The bespoke features of the villa include a 13-seater home cinema, a sauna, steam room, ice bath, spa, treatment room and fully equipped Technogym fitness area. The basement has a games room, there is a large home office on the ground floor and there is also an outdoor lounge and a bar/winery. This is one of the largest villas currently available on Palm Jumeirah and it comes with 10 generously sized bedrooms and staff quarters, so there is plenty of room. Its stunning views are also accompanied by a fantastic exterior that includes a fireplace seating area and a 17m private outdoor swimming pool. This exquisite luxury mansion villa is also sold fully furnished, so it is a turnkey luxury property that buyers can move into right away. It is also situated on Frond H, commonly referred to as the Billionaires--- Frond of Palm Jumeirah and one of its most exclusive gated communities. If you believe this luxury property could be right for you, get in touch today to arrange a viewing.</p>
+      </div>
+    </div>
+
+    <h2>Amenities</h2>
+    <div class="amenities">
+      <div>❄️ Air Conditioning</div>
+      <div>🛁 Ensuite</div>
+      <div>🧊 Fridge</div>
+      <div>🖥 Desk</div>
+      <div>📦 Storage</div>
+      <div>📺 TV</div>
+      <div>🏞 Balcony</div>
+    </div>
+  </section>
+
+  {% block script %}
+    <script src="{% static './assets/js/lightbox-plus-jquery.js' %}"></script>
+  {% endblock %}
+{% endblock %}
