@@ -220,76 +220,11 @@
     </div>
     <div class="page-wrapper cc-hero">
       <!-- Nav begins -->
-      {% include 'blog_nav.html' %}
+      {% include 'blog_nav.html' with nav_latest_projects=nav_latest_projects %}
       {% block content %}
       {% endblock %}
       <!-- Nav ends -->
-      <footer>
-        <div class="footer">
-          <div class="start">
-            <p>
-              Chau. de Louvain 3, 1210 <br />
-              Saint-Josse-ten-Noode, Belgium.
-            </p>
-            <ul>
-              <li>
-                <a href="mailto:info@email.com">info@email.com</a>
-              </li>
-              <li>
-                <a href="tel:+3255580331">+3255580331</a>
-              </li>
-            </ul>
-          </div>
-          <div class="center">
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">Properties</a>
-              </li>
-              <li>
-                <a href="/">Projects</a>
-              </li>
-              <li>
-                <a href="/">About</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="/">Whatsapp</a>
-              </li>
-              <li>
-                <a href="/">Instagram</a>
-              </li>
-              <li>
-                <a href="/">Twitter</a>
-              </li>
-              <li>
-                <a href="/">Email</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="line"></div>
-        <div class="footer_last">
-          <p>
-            &copy;
-            <script>
-              document.writeln(new Date().getFullYear());
-            </script>
-            Arcs and Glass. All rights reserved
-          </p>
-          <ul>
-            <li>
-              <a href="/">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="/">Terms and Conditions</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
+      {% include 'footer.html' with site_info=site_info %}
     </div>
     <script>
       window.onload =  function () {

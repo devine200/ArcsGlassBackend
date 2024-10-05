@@ -1,0 +1,63 @@
+<footer>
+    <div class="footer">
+      <div class="start">
+        <p>
+            {{ site_info.address }}
+        </p>
+        <ul>
+          <li>
+            <a href="mailto:{{ site_info.email }}">{{ site_info.email }}</a>
+          </li>
+          <li>
+            <a href="tel:{{ site_info.phone_number }}">{{ site_info.phone_number }}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="center">
+        <ul>
+          <li>
+            <a href="{% url 'index' %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'properties' %}">Properties</a>
+          </li>
+          <li>
+            <a href="{% url 'projects' %}">Projects</a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}">About</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="{{ site_info.whatsapp }}">Whatsapp</a>
+          </li>
+          <li>
+            <a href="{{ site_info.instagram }}">Instagram</a>
+          </li>
+          <li>
+            <a href="{{ site_info.twitter }}">Twitter</a>
+          </li>
+          <li>
+            <a href="mailto:{{ site_info.email }}">Email</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="footer_last">
+      <p>
+        &copy;<script>
+                document.writeln(new Date().getFullYear())
+              </script>Arcs and Glass. All rights reserved
+      </p>
+      <ul>
+        <li>
+          <a href="{% url 'index' %}">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="{% url 'index' %}">Terms and Conditions</a>
+        </li>
+      </ul>
+    </div>
+  </footer>

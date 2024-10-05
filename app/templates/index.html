@@ -1,5 +1,6 @@
 {% extends 'home_template.html' %}
 {% load static %}
+{% load custom_tags %}
 {% block head %}
   <title>HOME || ARCS N GLASS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,33 +12,17 @@
 {% endblock %}
 {% block content %}
   <div class="carousel-item">
-    <section class="about-section">
-      <div class="overlay"></div>
-      <img src="{% static './images/projects/gv iv.jpg' %}" alt="About Us Background" class="background-img" loading="lazy" />
-      <div class="content">
-        <h1>Arcs and Glass</h1>
-        <p>Transforming our community with simple, sophisticated and functional homes.</p>
-        <a href="/projects.html">Check our projects</a>
-      </div>
-    </section>
-    <section class="about-section">
-      <div class="overlay"></div>
-      <img src="{% static './images/projects/ksc x.jpg' %}" alt="About Us Background" class="background-img" loading="lazy" />
-      <div class="content">
-        <h1>Arcs and Glass</h1>
-        <p>Transforming our community with simple, sophisticated and functional homes.</p>
-        <a href="/projects.html">Check our projects</a>
-      </div>
-    </section>
-    <section class="about-section">
-      <div class="overlay"></div>
-      <img src="{% static './images/projects/days&nite.jpg' %}" alt="About Us Background" class="background-img" loading="lazy" />
-      <div class="content">
-        <h1>Arcs and Glass</h1>
-        <p>Transforming our community with simple, sophisticated and functional homes.</p>
-        <a href="/projects.html">Check our projects</a>
-      </div>
-    </section>
+    {% for carousel in carousels %}
+      <section class="about-section">
+        <div class="overlay"></div>
+        <img src="{{ carousel.cover_photo }}" alt="About Us Background" class="background-img" loading="lazy" />
+        <div class="content">
+          <h1>{{ carousel.heading }}</h1>
+          <p>{{ carousel.description }}.</p>
+          <a href="{{ carousel.redirect_link }}">{{ carousel.redirect_text }}</a>
+        </div>
+      </section>
+    {% endfor %}
   </div>
 
   <div class="about-container">
@@ -56,26 +41,23 @@
   <div class="background-section">
     <div class="cards-container">
       <div class="empty-div"></div>
-      <div class="card card1" style="background-color: #e8e9e9">
-        <h3>Card 1</h3>
-        <p>Content for card 1</p>
-      </div>
-      <div class="card card2" style="background-color: #1b3c6c; color: white">
-        <h3>Card 2</h3>
-        <p>Content for card 2</p>
-      </div>
-      <div class="card card3" style="background-color: #1b3c6c; color: white">
-        <h3>Card 3</h3>
-        <p>Content for card 3</p>
-      </div>
-      <div class="card card4" style="background-color: #e8e9e9">
-        <h3>Card 4</h3>
-        <p>Content for card 4</p>
-      </div>
-      <div class="card card5" style="background-color: #1b3c6c; color: white">
-        <h3>Card 5</h3>
-        <p>Content for card 5</p>
-      </div>
+      {% for _ in empty_slots_range %}
+        <div class="empty-div"></div>
+      {% endfor %}
+
+      {% for project in latest_projects %}
+        {% if forloop.counter|is_even %}
+          <div class="card card{{forloop.counter}}" style="background-color: #e8e9e9" onclick="window.location.replace('{% url "project_info" project.slug %}')">
+            <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
+            <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
+          </div>
+          {% else %}
+            <div class="card card{{forloop.counter}}" style="background-color: #1b3c6c; color: white" onclick="window.location.replace('{% url "project_info" project.slug %}')">
+              <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
+              <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
+            </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 

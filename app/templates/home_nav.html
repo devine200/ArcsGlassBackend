@@ -1,0 +1,102 @@
+{% load static %}
+<header class="header">
+  <nav class="nav container">
+    <div class="nav__data">
+      <a href="/" class="nav__logo"><img src="{% static './assets/image/ArcsGlassLogo-Primary-2048x2048.png' %}" width="65px" alt="" /></a>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-line nav__toggle-menu"></i>
+        <i class="ri-close-line nav__toggle-close"></i>
+      </div>
+    </div>
+
+    <!-- =============== NAV MENU =============== -->
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list">
+        <li>
+          <a href="{% url 'about' %}" class="nav__link">ABOUT</a>
+        </li>
+
+        <!-- =============== DROPDOWN 1 =============== -->
+        <li class="dropdown__item">
+          <a class="nav__link" href="{% url 'projects' %}">PROJECTS <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
+
+          <div class="dropdown__container">
+            <div class="dropdown__content" style="transform: translateX(-30px);">
+              {% for project in nav_latest_projects %}
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <img src="/{{ project.project_images.first.image }}" alt="" />
+                  </div>
+
+                  <span class="dropdown__title">{{ project.name }}</span>
+
+                  <p>{{ project.description|truncatechars:100 }}</p>
+                  <button><a href="{% url 'project_info' project.slug %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a></button>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </li>
+
+        <!-- =============== DROPDOWN 2 =============== -->
+        <li class="dropdown__item">
+          <a class="nav__link" href="{% url 'properties' %}">PROPERTIES <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
+
+          <div class="dropdown__container">
+            <div class="dropdown__content" style="transform: translateX(-30px);">
+              <div class="dropdown__group">
+                <div class="dropdown__icon">
+                  <img src="{% static './images/projects/gv xi.jpg' %}" alt="" />
+                </div>
+
+                <span class="dropdown__title">The Glass Vine</span>
+
+                <p>Our unique 1, 2 and 3 bedroom apartments located at Oniru sets the pace for what luxury and comfort looks like. The design is exquisite and highly functional.</p>
+                <button><a href="{% url 'properties' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a></button>
+              </div>
+
+              <div class="dropdown__group">
+                <div class="dropdown__icon">
+                  <img src="{% static './images/projects/ksc vii.jpg' %}" alt="" />
+                </div>
+
+                <span class="dropdown__title">Kingsmart City</span>
+
+                <p>
+                  This was our first commercial project located at Muri Okunola, Victoria Island, Lagos. <br />
+                  We created a modern industrial space for our client. We used black panels and worked with walnut to create a rustic but clean look.
+                </p>
+                <button><a href="{% url 'properties' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a></button>
+              </div>
+
+              <div class="dropdown__group">
+                <div class="dropdown__icon">
+                  <img src="{% static './images/projects/The Grandeur.JPG' %}" alt="" />
+                </div>
+
+                <span class="dropdown__title">The Grandeur</span>
+
+                <p>
+                  This was our first commercial project located at Muri Okunola, Victoria Island, Lagos. <br />
+                  We created a modern industrial space for our client. We used black panels and worked with walnut to create a rustic but clean look.
+                </p>
+                <button><a href="{% url 'properties' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a></button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a class="nav__link" href="{% url 'blog' %}">BLOG</a>
+        </li>
+
+        <li class="dropdown__item">
+          <a class="nav__link" href="{% url 'contact' %}">CONTACT</a>
+        </li>
+        <li class="dropdown__item">
+          <a class="nav__link" href="{% static 'assets/doc/brochure.pdf' %}">Brochure</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

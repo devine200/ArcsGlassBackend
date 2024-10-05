@@ -21,6 +21,7 @@ class Project(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(unique=True, max_length=255)
     description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
     
     def __str__(self):
         return self.name
@@ -33,8 +34,10 @@ class Project(models.Model):
     
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="project_images")
-    image = models.ImageField(upload_to="media/project")
+    image = models.ImageField(upload_to="project")
     
+    def __str__(self):
+        return f"{self.project.name} Project Image \t\t[{self.image.name}]"
 
 class Property(models.Model):
     name = models.CharField(max_length=50)
@@ -52,8 +55,10 @@ class Property(models.Model):
 
 class PropertyImage(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="property_images")
-    image = models.ImageField(Property, upload_to="media/property")
+    image = models.ImageField(upload_to="property")
     
+    def __str__(self):
+        return f"{self.property.name} Property Image \t\t[{self.image.name}]"
     
 class Blog(models.Model):
     title = models.CharField(max_length=50)
@@ -90,5 +95,5 @@ class ContactMessage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"{self.name} {self.created_at}"
+        return f"Contacted By: {self.name} \n Time Stamp: {self.created_at}"
     

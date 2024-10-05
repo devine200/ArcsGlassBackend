@@ -12,50 +12,25 @@
 {% block content %}
   <section class="project-section">
     <div class="overlay"></div>
-    <img src="{% static './images/projects/gv iv.jpg' %}" alt="About Us Background" class="background-img" />
+    <img src="/{{ project.project_images.first.image }}" alt="About Us Background" class="background-img" />
     <div class="content">
-      <h1>THE GLASS VINE</h1>
+      <h1 style="text-transform: uppercase;">{{ project.name }}</h1>
     </div>
   </section>
 
   <div class="project-details">
     <h1>Project Description</h1>
     <p>
-      Our unique 1, 2, and 3 bedroom apartments located at Oniru sets the pace for what luxury and comfort looks like. The design is exquisite and highly functional. <br />
-      Features include ensuite bathrooms, fully fitted kitchen, an elevator, a suspended pool, and our favorite feature which is the rooftop garden just overlooking the Atlantic giving residents the access to Lagos’s major tourist attraction.
+      {{ project.description }}
     </p>
   </div>
 
   <div class="card-container carousel-item">
-    <!-- Card 1 -->
+    {% for project_image in project.project_images.all %}
     <div class="card">
-      <img src="{% static './images/projects/gv iv.jpg' %}" alt="Card 1 Image" />
+      <img src="/{{project_image.image}}" alt="Card 1 Image" />
     </div>
-
-    <!-- Card 2 -->
-    <div class="card">
-      <img src="{% static './images/projects/gv xi.jpg' %}" alt="Card 2 Image" />
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-      <img src="{% static './images/projects/gv viii.jpg' %}" alt="Card 3 Image" />
-    </div>
-
-    <!-- Card 1 -->
-    <div class="card">
-      <img src="{% static './images/projects/gv iv.jpg' %}" alt="Card 1 Image" />
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card">
-      <img src="{% static './images/projects/gv xi.jpg' %}" alt="Card 2 Image" />
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-      <img src="{% static './images/projects/gv viii.jpg' %}" alt="Card 3 Image" />
-    </div>
+    {% endfor %}
   </div>
   {% block script %}
     <script src="./assets/js/lightbox-plus-jquery.js"></script>

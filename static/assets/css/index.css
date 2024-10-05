@@ -165,6 +165,8 @@
     top: 55%;
     left: 50%;
     /* right: 50%; */
+    width: 80%;
+    height: 80%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }

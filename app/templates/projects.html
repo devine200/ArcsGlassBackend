@@ -15,62 +15,14 @@
 
   <div class="card-container">
     <!-- Card 1 -->
-    <a href="{% url 'project_info' %}" class="card">
-      <img src="{% static './images/projects/days&nite.jpg' %}" alt="Card 1 Image" />
+    {% for project in projects %}
+    <a href="{% url 'project_info' project.slug %}" class="card">
+      <img src="{{ project.project_images.first.image }}" alt="{{ project.name }}" />
       <div class="overlay"></div>
       <div class="card-content">
-        <h3>DAYS & NITES</h3>
-        <!-- <p>Some description for Card 1.</p> -->
+        <h3 style="text-transform: uppercase;">{{ project.name }}</h3>
       </div>
     </a>
-
-    <!-- Card 2 -->
-    <a href="{% url 'project_info' %}" class="card">
-      <img src="{% static './images/projects/florence_h.JPG' %}" alt="Card 2 Image" />
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h3>Florence H</h3>
-        <!-- <p>Some description for Card 2.</p> -->
-      </div>
-    </a>
-
-    <!-- Card 3 -->
-    <a href="{% url 'project_info' %}" class="card">
-      <img src="{% static './images/projects/gv iv.jpg' %}" alt="Card 3 Image" />
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h3>The Glass Vine</h3>
-        <!-- <p>Some description for Card 3.</p>/Users/wikiwoo/Downloads/wetransfer_arcs-glass-logo-1-png_2024-09-24_1726/Grandeur/DSC_2273.JPG -->
-      </div>
-    </a>
-
-    <a href="{% url 'project_info' %}" class="card">
-      <img src="{% static './images/projects/The Grandeur.JPG' %}" alt="Card 1 Image" />
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h3>The Grandeur</h3>
-        <!-- <p>Some description for Card 1.</p> -->
-      </div>
-    </a>
-
-    <!-- Card 2 -->
-    <a href="{% url 'project_info' %}" class="card">
-      <img src="{% static './images/projects/ksc x.jpg' %}" alt="Card 1 Image" />
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h3>Kingsmart City</h3>
-        <!-- <p>Some description for Card 1.</p> -->
-      </div>
-    </a>
-
-    <!-- Card 3 -->
-    <a href="{% url 'project_info' %}" class="card">
-      <img src="{% static './images/projects/a19.jpg' %}" alt="Card 3 Image" />
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h3>A19</h3>
-        <!-- <p>Some description for Card 3.</p> -->
-      </div>
-    </a>
+    {% endfor %}
   </div>
 {% endblock %}
