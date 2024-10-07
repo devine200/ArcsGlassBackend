@@ -121,7 +121,7 @@ def properties(request):
         if bedroom_count > 0 :
             properties = properties.filter(bedroom_count__lte=int(bedroom_count))
 
-        if bathroom_count:
+        if bathroom_count > 0:
             properties = properties.filter(bathroom_count__lte=int(bathroom_count))
         
     return render(
