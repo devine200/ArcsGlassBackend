@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_tags %}
 <header class="header">
   <nav class="nav container">
     <div class="nav__data">
@@ -14,13 +15,20 @@
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list">
         <li>
-          <a href="{% url 'about' %}" class="nav__link">ABOUT</a>
+          {% if 'about' in request.path %}
+            <a href="{% url 'about' %}" class="nav__link active__link">ABOUT</a>
+          {% else %}
+            <a href="{% url 'about' %}" class="nav__link">ABOUT</a>
+          {% endif %}
         </li>
 
         <!-- =============== DROPDOWN 1 =============== -->
         <li class="dropdown__item">
-          <a class="nav__link" href="{% url 'projects' %}">PROJECTS <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
-
+          {% if 'projects' in request.path %}
+            <a class="nav__link active__link" href="{% url 'projects' %}">PROJECTS <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
+          {% else %}
+            <a class="nav__link" href="{% url 'projects' %}">PROJECTS <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
+          {% endif %}
           <div class="dropdown__container">
             <div class="dropdown__content" style="transform: translateX(-30px);">
               {% for project in nav_latest_projects %}
@@ -41,14 +49,17 @@
 
         <!-- =============== DROPDOWN 2 =============== -->
         <li class="dropdown__item">
-          <a class="nav__link" href="{% url 'properties' %}">PROPERTIES <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
-
+          {% if 'properties' in request.path %}
+            <a class="nav__link active__link" href="{% url 'properties' %}">PROPERTIES <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
+          {% else %}
+            <a class="nav__link" href="{% url 'properties' %}">PROPERTIES <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
+          {% endif %}
           <div class="dropdown__container">
             <div class="dropdown__content" style="transform: translateX(-30px);">
               {% for property in nav_latest_properties %}
                 <div class="dropdown__group">
                   <div class="dropdown__icon">
-                    <img src="{{ property.property_images.first.image.url }}" alt="{{property.name}}" />
+                    <img src="{{ property.property_images.first.image.url }}" alt="{{ property.name }}" />
                   </div>
 
                   <span class="dropdown__title">{{ property.name }}</span>
@@ -61,11 +72,19 @@
           </div>
         </li>
         <li>
-          <a class="nav__link" href="{% url 'blog' %}">BLOG</a>
+          {% if 'blog' in request.path %}
+            <a class="nav__link active__link" href="{% url 'blog' %}">BLOG</a>
+          {% else %}
+            <a class="nav__link" href="{% url 'blog' %}">BLOG</a>
+          {% endif %}
         </li>
 
         <li class="dropdown__item">
-          <a class="nav__link" href="{% url 'contact' %}">CONTACT</a>
+          {% if 'contact' in request.path %}
+            <a class="nav__link active__link" href="{% url 'contact' %}">CONTACT</a>
+          {% else %}
+            <a class="nav__link" href="{% url 'contact' %}">CONTACT</a>
+          {% endif %}
         </li>
         <li class="dropdown__item">
           <a class="nav__link" href="{% static 'assets/doc/brochure.pdf' %}">Brochure</a>

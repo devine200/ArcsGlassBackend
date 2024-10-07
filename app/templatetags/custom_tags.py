@@ -1,6 +1,6 @@
 from django import template
 
-register = template.Library();
+register = template.Library()
 
 @register.filter
 def is_even(value):
@@ -10,3 +10,7 @@ def is_even(value):
 @register.filter
 def format_amount(value):
     return format(value, ",")
+
+@register.filter
+def contains(val, exp):
+    return exp in val 
