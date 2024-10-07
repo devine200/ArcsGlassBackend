@@ -1,186 +1,95 @@
 {% extends 'home_template.html' %}
 {% load static %}
+{% load custom_tags %}
 {% block head %}
   <title>PROPERTIES || ARCS N GLASS</title>
   <link rel="stylesheet" href="{% static './assets/css/properties.css' %}" />
 {% endblock %}
 {% block content %}
-    <section class="property-section">
-      <div class="overlay"></div>
-      <img
-        src="{% static './images/projects/ksc x.jpg' %}"
-        alt="About Us Background"
-        class="background-img"
-      />
-      <div class="content">
-        <h1>PROPERTY</h1>
-      </div>
-    </section>
+  <section class="property-section">
+    <div class="overlay"></div>
+    <img src="{% static './images/projects/ksc x.jpg' %}" alt="About Us Background" class="background-img" />
+    <div class="content">
+      <h1>PROPERTY</h1>
+    </div>
+  </section>
 
-    <section class="search-section">
-      <h1>Find your next place to live</h1>
-      <div class="dropdown-container">
-        <div class="dropdown">
-          <label for="looking-for">Looking for</label>
-          <select id="looking-for">
-            <option value="">Select...</option>
-            <option value="buy">Buy</option>
-            <option value="rent">Rent</option>
-          </select>
+  <section class="search-section">
+    <h1>Find your next place to live</h1>
+    <form class="dropdown-container" method="POST" action="{% url 'properties' %}">
+      {% csrf_token %}
+      <div class="dropdown">
+        <p for="looking-for" style="padding-bottom: 5px; color: white; text-align: left;">Property type</p>
+        <select name="property_type" id="looking-for">
+          <option value="">Select...</option>
+          <option value="duplex">Duplex</option>
+          <option value="apartment">Flat &amp; Apartment</option>
+        </select>
+      </div>
+      <div class="slider-bg">
+        <div class="slider-header">
+          <p>Price</p>
+          <p>
+            ₦<span id="price">0</span>
+          </p>
         </div>
-        <div class="dropdown">
-          <label for="location">Location</label>
-          <select id="location">
-            <option value="">Select...</option>
-            <option value="new-york">New York</option>
-            <option value="california">California</option>
-          </select>
-        </div>
-        <div class="dropdown">
-          <label for="property-type">Property Type</label>
-          <select id="property-type">
-            <option value="">Select...</option>
-            <option value="apartment">Apartment</option>
-            <option value="house">House</option>
-          </select>
-        </div>
-        <div class="dropdown">
-          <label for="price">Price</label>
-          <select id="price">
-            <option value="">Select...</option>
-            <option value="low">Below $500,000</option>
-            <option value="high">Above $500,000</option>
-          </select>
+        <div class="slidecontainer">
+          <input name="price" type="range" min="0" max="500000000" value="0" class="slider" id="priceRange" />
         </div>
       </div>
-    </section>
+      <div class="slider-bg">
+        <div class="slider-header">
+          <p>Bedrooms</p>
+          <p>
+            <span id="beds"></span>
+          </p>
+        </div>
+        <div class="slidecontainer">
+          <input name="bedrooms" type="range" min="0" max="10" value="0" class="slider" id="bedRange" />
+        </div>
+      </div>
+      <div class="slider-bg">
+        <div class="slider-header">
+          <p>Bathrooms</p>
+          <p>
+            <span id="baths"></span>
+          </p>
+        </div>
+        <div class="slidecontainer">
+          <input name="baths" type="range" min="0" max="10" value="0" class="slider" id="bathRange" />
+        </div>
+      </div>
+      <button type="submit">Apply Filter</button>
+    </form>
+  </section>
 
-    <section>
+  <section>
+    {% if properties.count > 0 %}
       <div class="card-container">
-        <!-- Card 1 -->
-        <a href="{% url 'property_info' %}" class="card">
-          <img
-            src="{% static './images/projects/gv iv.jpg' %}"
-            alt="Property 1"
-            class="card-img"
-          />
-          <div class="card-content">
-            <p>$54,495,913.00</p>
-            <h3>The Glass Vine</h3>
-            <p>Dubai, United Arab Emirates</p>
-            <div class="card-info">
-              <div class="icon-info">
-                <span>🛏️ 11</span>
-                <span>🛁 16</span>
-                <span>🌞 28000</span>
+        {% for property in properties %}
+          <a href="{% url 'property_info' property.slug %}" class="card">
+            <img src="{{ property.property_images.first.image.url }}" alt="{{ property.name }}" class="card-img" />
+            <div class="card-content">
+              <p>₦{{ property.price|format_amount }}</p>
+              <h3 style="text-transform: capitalize;">{{ property.name }}</h3>
+              <p>{{ property.location }}</p>
+              <div class="card-info">
+                <div class="icon-info">
+                  <span>🛏️ {{ property.bedroom_count }}</span>
+                  <span>🛁 {{ property.bathroom_count }}</span>
+                  <span>🏘️ {{ property.home_unit_count }}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-
-        <!-- Card 2 -->
-        <a href="{% url 'property_info' %}" class="card">
-          <img
-            src="{% static './images/projects/florence_h.JPG' %}"
-            alt="Property 2"
-            class="card-img"
-          />
-          <div class="card-content">
-            <p>$54,495,913.00</p>
-            <h3>Florence H</h3>
-            <p>Dubai, United Arab Emirates</p>
-            <div class="card-info">
-              <div class="icon-info">
-                <span>🛏️ 13</span>
-                <span>🛁 16</span>
-                <span>🌞 23000</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 3 -->
-        <div class="card">
-          <img
-            src="{% static './images/projects/ksc x.jpg' %}"
-            alt="Property 3"
-            class="card-img"
-          />
-          <div class="card-content">
-            <p>$54,495,913.00</p>
-            <h3>King Smart City</h3>
-            <p>Dubai, United Arab Emirates</p>
-            <div class="card-info">
-              <div class="icon-info">
-                <span>🛏️ 12</span>
-                <span>🛁 16</span>
-                <span>🌞 33530</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="{% static './images/projects/days&nite.jpg' %}"
-            alt="Property 1"
-            class="card-img"
-          />
-          <div class="card-content">
-            <p>$54,495,913.00</p>
-            <h3>Day & Nite</h3>
-            <p>Dubai, United Arab Emirates</p>
-            <div class="card-info">
-              <div class="icon-info">
-                <span>🛏️ 11</span>
-                <span>🛁 16</span>
-                <span>🌞 28000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-          <img
-            src="{% static './images/projects/The Grandeur.JPG' %}"
-            alt="Property 2"
-            class="card-img"
-          />
-          <div class="card-content">
-            <p>$54,495,913.00</p>
-            <h3>The Grandeur</h3>
-            <p>Dubai, United Arab Emirates</p>
-            <div class="card-info">
-              <div class="icon-info">
-                <span>🛏️ 13</span>
-                <span>🛁 16</span>
-                <span>🌞 23000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-          <img
-            src="{% static './images/projects/a19.jpg' %}"
-            alt="Property 3"
-            class="card-img"
-          />
-          <div class="card-content">
-            <p>$54,495,913.00</p>
-            <h3>A 19</h3>
-            <p>Dubai, United Arab Emirates</p>
-            <div class="card-info">
-              <div class="icon-info">
-                <span>🛏️ 12</span>
-                <span>🛁 16</span>
-                <span>🌞 33530</span>
-              </div>
-            </div>
-          </div>
-        </div>
+          </a>
+        {% endfor %}
       </div>
-    </section>
-
-    {% endblock %}
+    {% endif %}
+    {% if properties.count == 0 %}
+      <h2 style="text-align: center; margin: 80px auto">No Available Property</h2>
+    {% endif %}
+  </section>
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'assets/js/properties.js' %}"></script>
+{% endblock %}

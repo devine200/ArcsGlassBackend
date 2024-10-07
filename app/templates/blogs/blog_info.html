@@ -17,7 +17,7 @@
         <div role="list" class="pro-col__list w-dyn-items">
           <div role="listitem" class="pro-col__item w-dyn-item">
             <div id="project-hero" style="
-                      background-image: url('https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior-.jpg');
+                      background-image: url('/{{blog.blog_images.first.image}}');
                     " class="project-hero">
               <div class="project-hero__title-wrapper">
                 <h1 data-w-id="3e570c8d-d9f1-afba-7cba-56ba8ddc2ca3" style="
@@ -31,7 +31,7 @@
                             rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
                           transform: translate3d(0, 4rem, 0) scale3d(1, 1, 1)
                             rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                        " class="u-text-center u-text-white">Blog One</h1>
+                        " class="u-text-center u-text-white">{{ blog.title }}</h1>
               </div>
               <div class="img-overlay"></div>
             </div>
@@ -50,27 +50,27 @@
                 <div class="col-6 blog-dets-one">
                   <div>
                     <h3 class="h5">Client</h3>
-                    <p class="u-mb-0">Banda Volpi</p>
+                    <p class="u-mb-0">{{ blog.client }}</p>
                   </div>
                   <div>
                     <h3 class="h5">Location</h3>
-                    <p class="u-mb-0">Vancouver, BC</p>
+                    <p class="u-mb-0">{{ blog.location }}</p>
                   </div>
                   <div>
                     <h3 class="h5">Scope</h3>
-                    <p class="u-mb-0">Interior Design, Concept Direction, Custom Art, Art Curation, Styling, FFE Procurement</p>
+                    <p class="u-mb-0">{{ blog.scope }}</p>
                   </div>
                   <div>
                     <h3 class="h5">Collaborators</h3>
-                    <p class="u-mb-0">Conrad Brown (Photography), Ian Lanterman (Photography), Kate Richard (Styling), Glasfurd &amp; Walker (Brand)</p>
+                    <p class="u-mb-0">{{ blog.collaborators }}</p>
                   </div>
                 </div>
                 <div class="col-6 blog-dets-info">
                   <div class="">
                     <p>
-                      La Tana—<em>The Den</em>—is a sister-spot to Vancouver’s beloved Savio Volpe. Situated in Vancouver’s Commercial Drive neighbourhood, La Tana is styled after an old-world Italian alimentari: a small local gathering place serving simple meals, brewing strong espresso, making fresh pasta, and stocking the finest Italian foods.
+                      {{ blog.description_top }}
                     </p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus temporibus sapiente ut quisquam perferendis adipisci cum, repudiandae a obcaecati id laudantium facilis, odio ab culpa voluptatibus cumque optio at tenetur.</p>
+                    <p>{{ blog.description_bottom }}</p>
                   </div>
                 </div>
               </div>
@@ -89,215 +89,23 @@
                     %3Cdiv%20role%3D%22listitem%22%20class%3D%22swiper-slide%20cc-proj-intro%20w-dyn-item%20w-dyn-repeater-item%22%3E%3Cdiv%20class%3D%22swiper__img-wrapper%22%3E%3Cimg%20src%3D%22https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy.jpg%22%20loading%3D%22lazy%22%20alt%3D%22%22%20sizes%3D%22(max-width%3A%20479px)%2093vw%2C%20(max-width%3A%20767px)%2048vw%2C%20(max-width%3A%20991px)%2047vw%2C%20100vw%22%20srcset%3D%22https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy-p-500.jpg%20500w%2C%20https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy-p-800.jpg%20800w%2C%20https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy-p-1080.jpg%201080w%2C%20https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy.jpg%201371w%22%20class%3D%22swiper__img%22%2F%3E%3C%2Fdiv%3E%3C%2Fdiv%3E
                   </script>
             <div role="list" class="swiper-wrapper cc-proj-slider w-dyn-items">
+              {% for blog_image in blog.blog_images.all %}
               <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
                 <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd92830c2a94d489cd4_615A6172%20copy.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd92830c2a94d489cd4_615A6172%20copy-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd92830c2a94d489cd4_615A6172%20copy-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd92830c2a94d489cd4_615A6172%20copy-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd92830c2a94d489cd4_615A6172%20copy.jpg        1371w
-                          " class="swiper__img" />
+                  <img src="/{{blog_image.image}}" class="swiper__img" />
                 </div>
               </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27ccf3a264b8d534668f_615A5971%20copy_1.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27ccf3a264b8d534668f_615A5971%20copy_1-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27ccf3a264b8d534668f_615A5971%20copy_1-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27ccf3a264b8d534668f_615A5971%20copy_1-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27ccf3a264b8d534668f_615A5971%20copy_1.jpg        1429w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b8a4_CB_La-Tana_06_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b8a4_CB_La-Tana_06_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b8a4_CB_La-Tana_06_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b8a4_CB_La-Tana_06_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b8a4_CB_La-Tana_06_RevA_2018-11-23%20SM%20Web-p-1600.jpg 1600w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b8a4_CB_La-Tana_06_RevA_2018-11-23%20SM%20Web.jpg        2000w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730d8ac2b14ec072af1_CB_La-Tana_04_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730d8ac2b14ec072af1_CB_La-Tana_04_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730d8ac2b14ec072af1_CB_La-Tana_04_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730d8ac2b14ec072af1_CB_La-Tana_04_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730d8ac2b14ec072af1_CB_La-Tana_04_RevA_2018-11-23%20SM%20Web-p-1600.jpg 1600w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730d8ac2b14ec072af1_CB_La-Tana_04_RevA_2018-11-23%20SM%20Web.jpg        1894w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27302c815f96e048543e_CB_La-Tana_10_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27302c815f96e048543e_CB_La-Tana_10_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27302c815f96e048543e_CB_La-Tana_10_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27302c815f96e048543e_CB_La-Tana_10_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27302c815f96e048543e_CB_La-Tana_10_RevA_2018-11-23%20SM%20Web.jpg        1333w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd911b914e2f9f72159_ste-marie-project-la-tana-pasta-fresca-countertop-hand-made-pasta-jpg.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd911b914e2f9f72159_ste-marie-project-la-tana-pasta-fresca-countertop-hand-made-pasta-jpg-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd911b914e2f9f72159_ste-marie-project-la-tana-pasta-fresca-countertop-hand-made-pasta-jpg-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd911b914e2f9f72159_ste-marie-project-la-tana-pasta-fresca-countertop-hand-made-pasta-jpg-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd911b914e2f9f72159_ste-marie-project-la-tana-pasta-fresca-countertop-hand-made-pasta-jpg.jpg        1371w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9518e6522344e077d_ste-marie-project-la-tana-pasta-fresca-station-employee-jpeg.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9518e6522344e077d_ste-marie-project-la-tana-pasta-fresca-station-employee-jpeg-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9518e6522344e077d_ste-marie-project-la-tana-pasta-fresca-station-employee-jpeg-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9518e6522344e077d_ste-marie-project-la-tana-pasta-fresca-station-employee-jpeg-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9518e6522344e077d_ste-marie-project-la-tana-pasta-fresca-station-employee-jpeg.jpg        1372w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27308dabb636a3f8db3a_CB_La-Tana_05_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27308dabb636a3f8db3a_CB_La-Tana_05_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27308dabb636a3f8db3a_CB_La-Tana_05_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27308dabb636a3f8db3a_CB_La-Tana_05_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27308dabb636a3f8db3a_CB_La-Tana_05_RevA_2018-11-23%20SM%20Web.jpg        1406w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27cc7b29ea6c645e50e9_615A6169%20copy_1.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27cc7b29ea6c645e50e9_615A6169%20copy_1-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27cc7b29ea6c645e50e9_615A6169%20copy_1-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27cc7b29ea6c645e50e9_615A6169%20copy_1-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27cc7b29ea6c645e50e9_615A6169%20copy_1.jpg        1429w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c3f2c0883203f901_CB_La-Tana_12_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c3f2c0883203f901_CB_La-Tana_12_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c3f2c0883203f901_CB_La-Tana_12_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c3f2c0883203f901_CB_La-Tana_12_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c3f2c0883203f901_CB_La-Tana_12_RevA_2018-11-23%20SM%20Web-p-1600.jpg 1600w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c3f2c0883203f901_CB_La-Tana_12_RevA_2018-11-23%20SM%20Web.jpg        2000w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9b0944cf7cdc473fe_ste-marie-project-la-tana-table-donuts.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9b0944cf7cdc473fe_ste-marie-project-la-tana-table-donuts-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9b0944cf7cdc473fe_ste-marie-project-la-tana-table-donuts-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9b0944cf7cdc473fe_ste-marie-project-la-tana-table-donuts-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9b0944cf7cdc473fe_ste-marie-project-la-tana-table-donuts.jpg        1371w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9ac77f183523c3817_ste-marie-project-la-tana.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9ac77f183523c3817_ste-marie-project-la-tana-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9ac77f183523c3817_ste-marie-project-la-tana-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9ac77f183523c3817_ste-marie-project-la-tana-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e58dd9ac77f183523c3817_ste-marie-project-la-tana.jpg        1371w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27303a0d5d333092e996_CB_La-Tana_01_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27303a0d5d333092e996_CB_La-Tana_01_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27303a0d5d333092e996_CB_La-Tana_01_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27303a0d5d333092e996_CB_La-Tana_01_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27303a0d5d333092e996_CB_La-Tana_01_RevA_2018-11-23%20SM%20Web.jpg        1335w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27305d3bcbf9a70016e0_CB_La-Tana_02_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27305d3bcbf9a70016e0_CB_La-Tana_02_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27305d3bcbf9a70016e0_CB_La-Tana_02_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27305d3bcbf9a70016e0_CB_La-Tana_02_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27305d3bcbf9a70016e0_CB_La-Tana_02_RevA_2018-11-23%20SM%20Web.jpg        1484w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b898_CB_La-Tana_03_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b898_CB_La-Tana_03_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b898_CB_La-Tana_03_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b898_CB_La-Tana_03_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df273022794c6c1b96b898_CB_La-Tana_03_RevA_2018-11-23%20SM%20Web.jpg        1488w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27304672e40807937dc6_CB_La-Tana_09_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27304672e40807937dc6_CB_La-Tana_09_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27304672e40807937dc6_CB_La-Tana_09_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27304672e40807937dc6_CB_La-Tana_09_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27304672e40807937dc6_CB_La-Tana_09_RevA_2018-11-23%20SM%20Web.jpg        1534w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27300af28fd6de07d4e0_CB_La-Tana_07_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27300af28fd6de07d4e0_CB_La-Tana_07_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27300af28fd6de07d4e0_CB_La-Tana_07_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27300af28fd6de07d4e0_CB_La-Tana_07_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27300af28fd6de07d4e0_CB_La-Tana_07_RevA_2018-11-23%20SM%20Web-p-1600.jpg 1600w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df27300af28fd6de07d4e0_CB_La-Tana_07_RevA_2018-11-23%20SM%20Web.jpg        1706w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730a04176e4284152a4_CB_La-Tana_08_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730a04176e4284152a4_CB_La-Tana_08_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730a04176e4284152a4_CB_La-Tana_08_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730a04176e4284152a4_CB_La-Tana_08_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730a04176e4284152a4_CB_La-Tana_08_RevA_2018-11-23%20SM%20Web.jpg        1333w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730578f3c92d76012f6_CB_La-Tana_11_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730578f3c92d76012f6_CB_La-Tana_11_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730578f3c92d76012f6_CB_La-Tana_11_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730578f3c92d76012f6_CB_La-Tana_11_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730578f3c92d76012f6_CB_La-Tana_11_RevA_2018-11-23%20SM%20Web-p-1600.jpg 1600w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730578f3c92d76012f6_CB_La-Tana_11_RevA_2018-11-23%20SM%20Web.jpg        2000w
-                          " class="swiper__img" />
-                </div>
-              </div>
-              <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
-                <div class="swiper__img-wrapper">
-                  <img src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c37441f1fe3f1b52_CB_La-Tana_13_RevA_2018-11-23%20SM%20Web.jpg" loading="lazy" alt="" sizes="(max-width: 479px) 93vw, (max-width: 767px) 48vw, (max-width: 991px) 47vw, 100vw" srcset="
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c37441f1fe3f1b52_CB_La-Tana_13_RevA_2018-11-23%20SM%20Web-p-500.jpg   500w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c37441f1fe3f1b52_CB_La-Tana_13_RevA_2018-11-23%20SM%20Web-p-800.jpg   800w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c37441f1fe3f1b52_CB_La-Tana_13_RevA_2018-11-23%20SM%20Web-p-1080.jpg 1080w,
-                            https://cdn.prod.website-files.com/65d47a27737b661f8342f492/66df2730c37441f1fe3f1b52_CB_La-Tana_13_RevA_2018-11-23%20SM%20Web.jpg        1500w
-                          " class="swiper__img" />
-                </div>
-              </div>
+              {% endfor %}
             </div>
+            {% if blog.blog_image.count == 0 %}
+            <div class="w-dyn-empty">
+              <div>No items found.</div>
+            </div>
+            {% else %}
             <div class="w-dyn-hide w-dyn-empty">
               <div>No items found.</div>
             </div>
+            {% endif %}
           </div>
           <a href="#" class="slider-btn swiper-prev w-inline-block"></a><a href="#" class="slider-btn swiper-next w-inline-block"></a>
           <div class="slider-number_wrapper">

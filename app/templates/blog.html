@@ -209,42 +209,28 @@
         <div class="hero">
           <div class="swiper cc-main w-dyn-list">
             <div role="list" class="swiper-wrapper w-dyn-items">
+              {% for blog in blogs %}
               <div role="listitem" class="swiper-slide w-dyn-item">
-                <a href="{% url 'blog_info' %}" class="hero__img-wrap w-inline-block">
+                <a href="{% url 'blog_info' blog.slug %}" class="hero__img-wrap w-inline-block">
                   <img
-                    src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior-.jpg"
+                    src="/{{blog.blog_images.first.image}}"
                     loading="lazy"
                     data-swiper-parallax="30%"
                     alt="Photo of retail destination Cadine"
                     sizes="100vw"
-                    srcset="
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-500.jpg   500w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-800.jpg   800w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-1080.jpg 1080w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-1600.jpg 1600w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior-.jpg        1920w
-                    "
                     class="hero__img"
                   />
                   <!-- Blog info -->
                   <div class="row">
                     <div class="t-blog-info"></div>
                     <div class="blog-info t-blog-info">
-                      <h4 class="blog-title">Blog Title</h4>
+                      <h4 class="blog-title">{{blog.title}}</h4>
                       <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem, id? Facilis unde repellat cupiditate qui
-                        labore quo, dolor tempore? Fugit, iusto. Odio repellat
-                        facere, consequatur obcaecati sit minima officia
-                        aliquid? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Voluptatem, id? Facilis unde repellat
-                        cupiditate qui labore quo, dolor tempore? Fugit, iusto.
-                        Odio repellat facere, consequatur obcaecati sit minima
-                        officia aliquid?
+                        {{blog.description_top|truncatechars:200}}
                       </p>
 
                       <div class="read-more-blog">
-                        <a href="{% url 'blog_info' %}" class="blog-read-more">
+                        <a href="{% url 'blog_info' blog.slug %}" class="blog-read-more">
                           <span class="btn-icon-blog"
                             ><i class="ri-arrow-right-s-line read-arr"></i
                           ></span>
@@ -255,224 +241,20 @@
                   </div>
                 </a>
               </div>
-              <div role="listitem" class="swiper-slide w-dyn-item">
-                <a href="{% url 'blog_info' %}" class="hero__img-wrap w-inline-block">
-                  <img
-                    src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/6615a82686dcb7d13ad4af49_2%20cover%202.jpg"
-                    loading="lazy"
-                    data-swiper-parallax="30%"
-                    alt="Photo of Ste Marie LA Times interior design hospitality project"
-                    sizes="100vw"
-                    srcset="
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/6615a82686dcb7d13ad4af49_2%20cover%202-p-500.jpg   500w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/6615a82686dcb7d13ad4af49_2%20cover%202-p-800.jpg   800w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/6615a82686dcb7d13ad4af49_2%20cover%202-p-1080.jpg 1080w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/6615a82686dcb7d13ad4af49_2%20cover%202-p-1600.jpg 1600w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/6615a82686dcb7d13ad4af49_2%20cover%202.jpg        2000w
-                    "
-                    class="hero__img"
-                  />
-
-                  <!-- blog info -->
-                  <div class="row">
-                    <div class="t-blog-info"></div>
-                    <div class="blog-info t-blog-info">
-                      <h4 class="blog-title">Blog Title</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem, id? Facilis unde repellat cupiditate qui
-                        labore quo, dolor tempore? Fugit, iusto. Odio repellat
-                        facere, consequatur obcaecati sit minima officia
-                        aliquid? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Voluptatem, id? Facilis unde repellat
-                        cupiditate qui labore quo, dolor tempore? Fugit, iusto.
-                        Odio repellat facere, consequatur obcaecati sit minima
-                        officia aliquid?
-                      </p>
-
-                      <div class="read-more-blog">
-                        <a href="{% url 'blog_info' %}" class="blog-read-more">
-                          <span class="btn-icon-blog"
-                            ><i class="ri-arrow-right-s-line read-arr"></i
-                          ></span>
-                          Read more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div role="listitem" class="swiper-slide w-dyn-item">
-                <a href="{% url 'blog_info' %}" class="hero__img-wrap w-inline-block"
-                  ><img
-                    src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior-.jpg"
-                    loading="lazy"
-                    data-swiper-parallax="30%"
-                    alt="Photo of retail destination Cadine"
-                    sizes="100vw"
-                    srcset="
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-500.jpg   500w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-800.jpg   800w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-1080.jpg 1080w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior--p-1600.jpg 1600w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65e085ec3554e02a6c5ad2e6_Copy%20of%20ste-marie-project-cadine-cabinetry-floral-styling-rings-interior-.jpg        1920w
-                    "
-                    class="hero__img"
-                  />
-
-                  <!-- blog info -->
-                  <div class="row">
-                    <div class="t-blog-info"></div>
-                    <div class="blog-info t-blog-info">
-                      <h4 class="blog-title">Blog Title</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem, id? Facilis unde repellat cupiditate qui
-                        labore quo, dolor tempore? Fugit, iusto. Odio repellat
-                        facere, consequatur obcaecati sit minima officia
-                        aliquid? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Voluptatem, id? Facilis unde repellat
-                        cupiditate qui labore quo, dolor tempore? Fugit, iusto.
-                        Odio repellat facere, consequatur obcaecati sit minima
-                        officia aliquid?
-                      </p>
-
-                      <div class="read-more-blog">
-                        <a href="{% url 'blog_info' %}" class="blog-read-more">
-                          <span class="btn-icon-blog"
-                            ><i class="ri-arrow-right-s-line read-arr"></i
-                          ></span>
-                          Read more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div role="listitem" class="swiper-slide w-dyn-item">
-                <a href="{% url 'blog_info' %}" class="hero__img-wrap w-inline-block"
-                  ><img
-                    src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65fe013c877771ed6967bbe8_2.jpg"
-                    loading="lazy"
-                    data-swiper-parallax="30%"
-                    alt="Photograph of Ste Marie Interior design project Hotel Georgia Lobby"
-                    sizes="100vw"
-                    srcset="
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65fe013c877771ed6967bbe8_2-p-500.jpg   500w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65fe013c877771ed6967bbe8_2-p-800.jpg   800w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65fe013c877771ed6967bbe8_2-p-1080.jpg 1080w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65fe013c877771ed6967bbe8_2-p-1600.jpg 1600w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65fe013c877771ed6967bbe8_2-p-2000.jpg 2000w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/65fe013c877771ed6967bbe8_2.jpg        2200w
-                    "
-                    class="hero__img"
-                  />
-
-                  <!-- blog info -->
-                  <div class="row">
-                    <div class="t-blog-info"></div>
-                    <div class="blog-info t-blog-info">
-                      <h4 class="blog-title">Blog Title</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem, id? Facilis unde repellat cupiditate qui
-                        labore quo, dolor tempore? Fugit, iusto. Odio repellat
-                        facere, consequatur obcaecati sit minima officia
-                        aliquid? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Voluptatem, id? Facilis unde repellat
-                        cupiditate qui labore quo, dolor tempore? Fugit, iusto.
-                        Odio repellat facere, consequatur obcaecati sit minima
-                        officia aliquid?
-                      </p>
-
-                      <div class="read-more-blog">
-                        <a href="{% url 'blog_info' %}" class="blog-read-more">
-                          <span class="btn-icon-blog"
-                            ><i class="ri-arrow-right-s-line read-arr"></i
-                          ></span>
-                          Read more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div role="listitem" class="swiper-slide w-dyn-item">
-                <a href="{% url 'blog_info' %}" class="hero__img-wrap w-inline-block"
-                  ><img
-                    src="https://cdn.prod.website-files.com/65d47a27737b661f8342f492/660c7ab60c4941b63fd3e193_KB_KissaTanto_Stairwell%20700K%20.jpg"
-                    loading="lazy"
-                    data-swiper-parallax="30%"
-                    alt="image of restaurant kissa tanto"
-                    sizes="100vw"
-                    srcset="
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/660c7ab60c4941b63fd3e193_KB_KissaTanto_Stairwell%20700K%20-p-500.jpg   500w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/660c7ab60c4941b63fd3e193_KB_KissaTanto_Stairwell%20700K%20-p-800.jpg   800w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/660c7ab60c4941b63fd3e193_KB_KissaTanto_Stairwell%20700K%20-p-1080.jpg 1080w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/660c7ab60c4941b63fd3e193_KB_KissaTanto_Stairwell%20700K%20-p-1600.jpg 1600w,
-                      https://cdn.prod.website-files.com/65d47a27737b661f8342f492/660c7ab60c4941b63fd3e193_KB_KissaTanto_Stairwell%20700K%20.jpg        2500w
-                    "
-                    class="hero__img"
-                  />
-                  <div class="row">
-                    <div class="t-blog-info"></div>
-                    <div class="blog-info t-blog-info">
-                      <h4 class="blog-title">Blog Title</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem, id? Facilis unde repellat cupiditate qui
-                        labore quo, dolor tempore? Fugit, iusto. Odio repellat
-                        facere, consequatur obcaecati sit minima officia
-                        aliquid? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Voluptatem, id? Facilis unde repellat
-                        cupiditate qui labore quo, dolor tempore? Fugit, iusto.
-                        Odio repellat facere, consequatur obcaecati sit minima
-                        officia aliquid?
-                      </p>
-
-                      <div class="read-more-blog">
-                        <a href="{% url 'blog_info' %}" class="blog-read-more">
-                          <span class="btn-icon-blog"
-                            ><i class="ri-arrow-right-s-line read-arr"></i
-                          ></span>
-                          Read more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              {% endfor %}
             </div>
           </div>
 
           <div class="hero__text">
             <div class="h-text_wrap w-dyn-list">
               <div role="list" class="h-text_list w-dyn-items">
-                <div role="listitem" class="h-text_item w-dyn-item">
-                  <div class="h-text_wrap">
-                    <h1 class="swiper-text text-block">Blog One Name</h1>
+                {% for blog in blogs %}
+                  <div role="listitem" class="h-text_item w-dyn-item">
+                    <div class="h-text_wrap">
+                      <h1 class="swiper-text text-block">{{ blog.title }}</h1>
+                    </div>
                   </div>
-                </div>
-                <div role="listitem" class="h-text_item w-dyn-item">
-                  <div class="h-text_wrap">
-                    <h1 class="swiper-text text-block">Blog Two Name</h1>
-                  </div>
-                </div>
-                <div role="listitem" class="h-text_item w-dyn-item">
-                  <div class="h-text_wrap">
-                    <h1 class="swiper-text text-block">Blog Three Name</h1>
-                  </div>
-                </div>
-                <div role="listitem" class="h-text_item w-dyn-item">
-                  <div class="h-text_wrap">
-                    <h1 class="swiper-text text-block">Blog Four Name</h1>
-                  </div>
-                </div>
-                <div role="listitem" class="h-text_item w-dyn-item">
-                  <div class="h-text_wrap">
-                    <h1 class="swiper-text text-block">Blog Five Name</h1>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
             <div class="hero__content-number">
