@@ -1,12 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
 <html
-  data-wf-domain="www.stemariestudio.com"
   data-wf-page="65d47a2889eaf3f4c7f0a897"
   data-wf-site="65d32a893b5eddb8f8a2a71c"
   lang="en"
   data-wf-collection="65d47a2889eaf3f4c7f0a88d"
-  data-wf-item-slug="la-tana"
+  data-wf-item-slug="{{property.slug}}"
 >
   <head>
     <meta charset="utf-8" />
@@ -32,11 +31,7 @@
             (n.className += t + "touch");
       })(window, document);
     </script>
-    <link
-      href="https://cdn.prod.website-files.com/65d32a893b5eddb8f8a2a71c/6603c8cd282f2b2acbeb0ca1_Ste-Marie_Secondary-Logo_Black.jpg"
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="{% static './assets/image/ArcsGlassLogo-Primary-2048x2048.png' %}" type="image/x-icon" />
     <link
       href="https://cdn.prod.website-files.com/65d32a893b5eddb8f8a2a71c/6603c93f2e488673fd756fac_Ste-Marie_Secondary-Logo_Black.jpg"
       rel="apple-touch-icon"
@@ -220,7 +215,7 @@
     </div>
     <div class="page-wrapper cc-hero">
       <!-- Nav begins -->
-      {% include 'blog_nav.html' with nav_latest_projects=nav_latest_projects %}
+      {% include 'blog_nav.html' with nav_latest_projects=nav_latest_projects nav_latest_properties=nav_latest_properties %}
       {% block content %}
       {% endblock %}
       <!-- Nav ends -->

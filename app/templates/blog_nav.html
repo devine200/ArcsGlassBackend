@@ -45,30 +45,18 @@
 
           <div class="dropdown__container">
             <div class="dropdown__content">
-              <div class="dropdown__group">
-                <div class="dropdown__icon">
-                  <img src="{% static './images/projects/gv xi.jpg' %}" alt="" />
+              {% for property in nav_latest_properties %}
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <img src="{{ property.property_images.first.image.url }}" alt="{{property.name}}" />
+                  </div>
+
+                  <span class="dropdown__title">{{ property.name }}</span>
+
+                  <p>{{ property.description|truncatechars:100 }}</p>
+                  <button><a href="{% url 'property_info' property.slug %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a></button>
                 </div>
-
-                <span class="dropdown__title">The Glass Vine</span>
-
-                <p>Our unique 1, 2 and 3 bedroom apartments located at Oniru sets the pace for what luxury and comfort looks like. The design is exquisite and highly functional.</p>
-                <button><a href="{% url 'properties' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a></button>
-              </div>
-
-              <div class="dropdown__group">
-                <div class="dropdown__icon">
-                  <img src="{% static './images/projects/ksc vii.jpg' %}" alt="" />
-                </div>
-
-                <span class="dropdown__title">Kingsmart City</span>
-
-                <p>
-                  This was our first commercial project located at Muri Okunola, Victoria Island, Lagos. <br />
-                  We created a modern industrial space for our client. We used black panels and worked with walnut to create a rustic but clean look.
-                </p>
-                <button><a href="{% url 'properties' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a></button>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </li>
