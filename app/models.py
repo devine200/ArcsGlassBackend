@@ -27,11 +27,6 @@ class Project(models.Model):
     def __str__(self):
         return self.name
     
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super(Project, self).save(*args, **kwargs)
-    
     
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="project_images")
@@ -51,7 +46,7 @@ class Property(models.Model):
     home_unit_count = models.PositiveIntegerField(default=0)
     property_type = models.CharField(max_length=50, choices=HOME_UNIT_CHOICES, default="duplex")
     description = models.TextField(default="")
-    slug = models.SlugField(unique=True, max_length=255, default=f"{uuid4}")
+    slug = models.SlugField(unique=True, max_length=255, default=f"{str(uuid4)}")
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
@@ -64,12 +59,6 @@ class PropertyImage(models.Model):
     
     def __str__(self):
         return f"{self.property.name} Property Image \t\t[{self.image.name}]"
-    
-        
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super(Project, self).save(*args, **kwargs)
         
         
 class Blog(models.Model):
@@ -85,10 +74,6 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
     
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super(Project, self).save(*args, **kwargs)
     
     
 class BlogImage(models.Model):
@@ -96,7 +81,8 @@ class BlogImage(models.Model):
     image = models.ImageField(upload_to="blog")
     
     def __str__(self):
-        return f"{self.blog.name} Blog Image [{self.image.name}]"
+        return f"{self.blog.title} Blog Image [{self.image.name}]"
+    
 class SiteInfo(models.Model):
     address = models.CharField(max_length=255)
     email = models.EmailField()

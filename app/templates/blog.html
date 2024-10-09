@@ -217,7 +217,7 @@ lang="en"
               <div role="listitem" class="swiper-slide w-dyn-item">
                 <a href="{% url 'blog_info' blog.slug %}" class="hero__img-wrap w-inline-block">
                   <img
-                    src="/{{blog.blog_images.first.image}}"
+                    src="{{blog.blog_images.first.image.url}}"
                     loading="lazy"
                     data-swiper-parallax="30%"
                     alt="Photo of retail destination Cadine"

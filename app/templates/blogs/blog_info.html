@@ -17,7 +17,7 @@
         <div role="list" class="pro-col__list w-dyn-items">
           <div role="listitem" class="pro-col__item w-dyn-item">
             <div id="project-hero" style="
-                      background-image: url('/{{blog.blog_images.first.image}}');
+                      background-image: url('{{blog.blog_images.first.image.url}}');
                     " class="project-hero">
               <div class="project-hero__title-wrapper">
                 <h1 data-w-id="3e570c8d-d9f1-afba-7cba-56ba8ddc2ca3" style="
@@ -92,12 +92,12 @@
               {% for blog_image in blog.blog_images.all %}
               <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
                 <div class="swiper__img-wrapper">
-                  <img src="/{{blog_image.image}}" class="swiper__img" />
+                  <img src="{{blog_image.image.url}}" class="swiper__img" />
                 </div>
               </div>
               {% endfor %}
             </div>
-            {% if blog.blog_image.count == 0 %}
+            {% if blog.blog_images.count == 0 %}
             <div class="w-dyn-empty">
               <div>No items found.</div>
             </div>
