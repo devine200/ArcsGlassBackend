@@ -6,6 +6,8 @@ from app.models import (
     Property,
     Blog,
     TeamMember,
+    LandingPageProjectsIntro,
+    ContactMessage
 )
 
 
@@ -15,6 +17,7 @@ def index(request):
     nav_latest_projects = Project.objects.all().order_by("-created_at")[:3]
     nav_latest_properties = Property.objects.all().order_by("-created_at")[:3]
     latest_projects = Project.objects.all().order_by("-created_at")[:5]
+    intro_text = LandingPageProjectsIntro.objects.first()
     empty_slots_range = range(5 - len(latest_projects))
     return render(
         request,
@@ -26,6 +29,7 @@ def index(request):
             "nav_latest_properties": nav_latest_properties,
             "latest_projects": latest_projects,
             "empty_slots": empty_slots_range,
+            "intro_text": intro_text,
         },
     )
 
@@ -158,6 +162,26 @@ def contact(request):
     site_info = SiteInfo.objects.first()
     nav_latest_projects = Project.objects.all().order_by("-created_at")[:3]
     nav_latest_properties = Property.objects.all().order_by("-created_at")[:3]
+    error_message = None
+    success_message = None
+    
+    if request.method == "POST":
+        name = request.POST.get("name", None)
+        email = request.POST.get("email", None)
+        phone = request.POST.get("phone", None)
+        message = request.POST.get("message", None)
+        
+        if name == None or email == None or phone == None or message == None:
+            error_message = "Missing Field While Sending Message"
+        
+        else:
+            try:
+                ContactMessage.objects.create(name=name, email=email, phone=phone, message=message)
+                success_message = "Contact Message Was Relayed Succesfully"
+                
+            except Exception as e:
+                error_message = str(e)
+            
     return render(
         request,
         "contact.html",
@@ -165,6 +189,8 @@ def contact(request):
             "site_info": site_info,
             "nav_latest_projects": nav_latest_projects,
             "nav_latest_properties": nav_latest_properties,
+            "error_message": error_message,
+            "success_message": success_message,
         },
     )
 

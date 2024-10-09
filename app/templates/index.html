@@ -27,11 +27,11 @@
 
   <div class="about-container">
     <div class="text-section">
-      <p>We are not just a company; we are a promise of innovation, professionalism, and confidence. You pay us to be innovative, and we deliver by bringing your ideas to life.</p>
-      <a href="./about.html" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a>
+      <p>{{intro_text.description}}</p>
+      <a href="{% url 'projects' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a>
     </div>
     <div class="image-section">
-      <img src="{% static './images/projects/ksc xi.jpg' %}" alt="Construction Image" />
+      <img src="{{ intro_text.cover_photo.url }}" alt="Intro Image" />
     </div>
   </div>
 

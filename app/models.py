@@ -17,7 +17,8 @@ class LandingPageProjectsIntro(models.Model):
     description = models.TextField()
     cover_photo = models.ImageField(upload_to="landing")
     
-
+    def __str__(self):
+        return "Landing Page Intro Text"
 class Project(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(unique=True, max_length=255)
@@ -46,7 +47,7 @@ class Property(models.Model):
     home_unit_count = models.PositiveIntegerField(default=0)
     property_type = models.CharField(max_length=50, choices=HOME_UNIT_CHOICES, default="duplex")
     description = models.TextField(default="")
-    slug = models.SlugField(unique=True, max_length=255, default=f"{str(uuid4)}")
+    slug = models.SlugField(unique=True, max_length=255, default=f"{str(uuid4())}")
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
