@@ -34,7 +34,7 @@
               {% for project in nav_latest_projects %}
                 <div class="dropdown__group">
                   <div class="dropdown__icon">
-                    <img src="/{{ project.project_images.first.image }}" alt="" />
+                    <img src="{{ project.project_images.first.image.url }}" alt="" />
                   </div>
 
                   <span class="dropdown__title">{{ project.name }}</span>
