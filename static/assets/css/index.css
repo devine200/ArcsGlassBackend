@@ -1,177 +1,181 @@
-.carousel-item img{
-    width: 100%;
-    object-fit: cover;
+.carousel-item img {
+  width: 100%;
+  object-fit: cover;
 }
 
-.carousel-item div{
-    /* height: 100%; */
-    overflow-y: hidden;
+.carousel-item div {
+  /* height: 100%; */
+  overflow-y: hidden;
 }
 
 /* General styles for layout */
 .about-container {
-    display: flex;
-    overflow: hidden;
-    margin: 4rem;
-  }
-  
-  .text-section {
-    flex: 1;
-    background-color: #1B3C6C; /* Dark background */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-  }
-  
-  .text-section p {
-    font-size: 1rem; /* Adjust text size */
-    margin-bottom: 20px;
-  }
-  
-  .read-more-btn {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    /* font-weight: bold; */
-  }
-  
-  .btn-icon {
-    color: #b8742b; 
-    border-radius: 50%;
-    background-color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-  }
-  
-  .image-section {
-    flex: 1;
-    display: flex;
-  }
-  
-  .image-section img {
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
-  }
-  
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%; 
-    height: 0;
-    overflow: hidden;
-    width: 90%;
-    /* background: #000; */
-    margin: 4rem auto;
-  }
-  
-  .background-section {
-    background-image: url('../../images/projects/The\ Grandeur.JPG');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0 4rem 4rem;
-  }
-  
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for the top row */
-    grid-template-rows: auto auto; /* Rows for the top and bottom */
-    grid-gap: 0; /* No gaps between cards */
-    max-width: 1200px;
-  }
-  
-  .card {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 340px;
-    width: 280px;
-    border-bottom: 1px solid rgb(146, 146, 146);
-    transition: .5s;
-    cursor: pointer;
-  }
+  display: flex;
+  overflow: hidden;
+  margin: 4rem;
+}
 
-  .card:hover{
-    scale: 1.05;
-    transition: .5s;
-  }
-  
-  .card1, .card2 {
-    grid-column: span 1;
-  }
-  
-  .card3, .card4, .card5 {
-    grid-column: span 1;
-  }
-  
-  .card3, .card4, .card5 {
-    grid-row: 2;
-  }
+.text-section {
+  flex: 1;
+  background-color: #1b3c6c; /* Dark background */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+}
 
+.text-section p {
+  font-size: 1rem; /* Adjust text size */
+  margin-bottom: 20px;
+}
 
-  .latest_header{
-    font-weight: 700;
-    line-height: 1.166667;
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 1rem;
-    margin-top: 8rem;
-  }
+.read-more-btn {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  /* font-weight: bold; */
+}
 
-  .about-section {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    overflow: hidden;
+.btn-icon {
+  color: #b8742b;
+  border-radius: 50%;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+}
+
+.image-section img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  width: 90%;
+  /* background: #000; */
+  margin: 4rem auto;
+}
+
+.background-section {
+  background-image: url("../../images/projects/The\ Grandeur.JPG");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 4rem 4rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for the top row */
+  grid-template-rows: auto auto; /* Rows for the top and bottom */
+  grid-gap: 0; /* No gaps between cards */
+  max-width: 1200px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 340px;
+  width: 280px;
+  border-bottom: 1px solid rgb(146, 146, 146);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.card:hover {
+  scale: 1.05;
+  transition: 0.5s;
+}
+
+.card1,
+.card2 {
+  grid-column: span 1;
+}
+
+.card3,
+.card4,
+.card5 {
+  grid-column: span 1;
+}
+
+.card3,
+.card4,
+.card5 {
+  grid-row: 2;
+}
+
+.latest_header {
+  font-weight: 700;
+  line-height: 1.166667;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 1rem;
+  margin-top: 8rem;
+}
+
+.about-section {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
 }
 
 .background-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-  }
-  
-  .content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    position: absolute;
-    bottom: 20px;
-    top: 55%;
-    left: 50%;
-    /* right: 50%; */
-    width: 80%;
-    height: 80%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.carousel-item .content a{
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  top: 55%;
+  left: 50%;
+  /* right: 50%; */
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.carousel-item .content a {
   margin-top: 15px;
   padding: 12px 30px;
   border: none;
@@ -180,81 +184,130 @@
   cursor: pointer;
   background-color: transparent;
   border: 2px solid #b8742b;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.carousel-item .content a:hover{
-  transition: .5s;
+.carousel-item .content a:hover {
+  transition: 0.5s;
   background-color: #b8742b;
 }
 
 .content h1 {
-    font-size: 4rem;
-    font-weight: bold;
+  font-size: 4rem;
+  font-weight: bold;
+}
+.mobile-cards-container {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .background-section {
+    background: none;
+    margin: auto;
+  }
+
+  .cards-container {
+    margin: auto;
+  }
+
+  .empty-div {
+    display: none;
+  }
+
+  .card {
+    max-width: 280px;
+  }
 }
 
-  @media screen and (max-width:992px) {
-    .background-section{
-      background: none;
-      margin: auto;
-    }
-    
-    .cards-container {
-      margin: auto;
-     }
-
-     .empty-div{
-      display: none;
-     }
-
-     .card{
-      max-width: 280px;
-     }
+@media (max-width: 768px) {
+  .card {
+    width: 400px;
+    margin: auto;
   }
-  
-  @media (max-width: 768px) {
-    .card {
-      width: 400px;
-      margin: auto;
-    }
 
-    .cards-container {
-      width: 400px;
+  .cards-container {
+   /* width: 400px;
       margin: auto;
       display: flex !important;
-      flex-direction: column;
-    }
-    .card3 {
-      grid-column: span 1; /* Reset to single column on mobile */
-    }
-    .about-container{
-      flex-direction: column-reverse;
-      margin: 1rem;
-    }
-
-    .carousel-item div{
-      height: 100%;
-    }
-
-    .content{
-      width: 80%;
-      text-align: center;
-    }
-
-    .content h1{
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-      
-    .video-container {
-      width: 95%;
-      margin: 4rem auto;
-    }
+      flex-direction: column; */
+      display: none;
+  }
+  .mobile-cards-container{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 2rem;
   }
 
-  @media screen and (max-width:480px) {
-    .content h1, .latest_header{
-      font-size: 2rem;
-    }
+  .mobile-cards-container .btn-icon{
+    width: 0;
   }
+
+  .mobile-cards-container .dropdown__group p, .mobile-cards-container .dropdown__group button, .mobile-cards-container .dropdown__title{
+    font-size: 1rem;
+  }
+
+  .mobile-cards-container .dropdown__group p{
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .mobile-cards-container .dropdown__group{
+    box-shadow: 0 0 5px rgb(211, 211, 211);
+    padding-left: 0;
+  }
+
+  .mobile-cards-container .dropdown__group img{
+    width: 100%;
+  }
+
+  .mobile-cards-container .dropdown__group{
+    margin-top: 0;
+  }
+  
+  .mobile-cards-container .dropdown__group #content{
+    padding: 20px;
+  }
+  
+  .background-section{
+    justify-content: center;
+  }
+  .card3 {
+    grid-column: span 1; /* Reset to single column on mobile */
+  }
+  .about-container {
+    flex-direction: column-reverse;
+    margin: 1rem;
+  }
+
+  .carousel-item div {
+    height: 100%;
+  }
+
+  .content {
+    width: 80%;
+    text-align: center;
+  }
+
+  .content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  .video-container {
+    width: 95%;
+    margin: 4rem auto;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .mobile-cards-container{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content h1,
+  .latest_header {
+    font-size: 2rem;
+  }
+}

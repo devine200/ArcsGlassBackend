@@ -23,6 +23,10 @@ class Project(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(unique=True, max_length=255)
     description = models.TextField()
+    duration = models.CharField(max_length=20, null=True)
+    property_type = models.CharField(max_length=20, null=True)
+    style = models.CharField(max_length=50, null=True)
+    year_of_execution = models.CharField(max_length=20, null=True)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     
     def __str__(self):

@@ -46,17 +46,38 @@
       {% endfor %}
 
       {% for project in latest_projects %}
-        {% if forloop.counter|is_even %}
-          <div class="card card{{forloop.counter}}" style="background-color: #e8e9e9" onclick="window.location.replace('{% url "project_info" project.slug %}')">
-            <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
-            <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
-          </div>
-          {% else %}
-            <div class="card card{{forloop.counter}}" style="background-color: #1b3c6c; color: white" onclick="window.location.replace('{% url "project_info" project.slug %}')">
-              <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
-              <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
-            </div>
-        {% endif %}
+      {% if forloop.counter|is_even %}
+      <div class="card card{{forloop.counter}}" style="background-color: #e8e9e9" onclick="window.location.replace('{% url "project_info" project.slug %}')">
+        <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
+        <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
+      </div>
+      {% else %}
+      <div class="card card{{forloop.counter}}" style="background-color: #1b3c6c; color: white" onclick="window.location.replace('{% url "project_info" project.slug %}')">
+        <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
+        <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="mobile-cards-container">
+      {% for project in latest_projects %}
+      <div class="dropdown__group">
+        <div class="dropdown__icon">
+          <img src="{{project.project_images.first.image.url}}" alt="{{project.name}}">
+        </div>
+        
+        <div id="content">
+          <span class="dropdown__title">{{project.name}}</span>
+          <p>
+            {{project.description|truncatechars:150}}
+          </p>
+          <button>
+            <a href="{% url 'project_info' project.slug %}" class="read-more-btn">
+              <span class="btn-icon">➤</span> Read more
+            </a>
+          </button>
+        </div>
+      </div>
       {% endfor %}
     </div>
   </div>

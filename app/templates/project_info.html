@@ -20,16 +20,28 @@
 
   <div class="project-details">
     <h1>Project Description</h1>
-    <p>
-      {{ project.description }}
-    </p>
+    <p>{{ project.description }}</p>
+    <ul style="margin-top: 40px !important;">
+      <li>
+        <span style="font-weight: bold; display: inline-block; margin-right: 15px; margin-bottom: 10px">Duration:</span> <span style="font-weight: normal;">{{ project.duration }}</span>
+      </li>
+      <li>
+        <span style="font-weight: bold; display: inline-block; margin-right: 15px; margin-bottom: 10px">Property Type:</span> <span style="font-weight: normal">{{ project.property_type }}</span>
+      </li>
+      <li>
+        <span style="font-weight: bold; display: inline-block; margin-right: 15px; margin-bottom: 10px">Style:</span> <span style="font-weight: normal">{{ project.style }}</span>
+      </li>
+      <li>
+        <span style="font-weight: bold; display: inline-block; margin-right: 15px; margin-bottom: 10px">Year Of Execution:</span> <span style="font-weight: normal">{{ project.year_of_execution }}</span>
+      </li>
+    </ul>
   </div>
 
   <div class="card-container carousel-item">
     {% for project_image in project.project_images.all %}
-    <div class="card">
-      <img src="{{ project_image.image.url }}" alt="Card 1 Image" />
-    </div>
+      <div class="card">
+        <img src="{{ project_image.image.url }}" alt="Card 1 Image" />
+      </div>
     {% endfor %}
   </div>
   {% block script %}
