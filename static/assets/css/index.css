@@ -199,6 +199,20 @@
 .mobile-cards-container {
   display: none;
 }
+
+.play__btn{
+  position: absolute;
+  font-size: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.play__btn:hover{
+  cursor: pointer;
+}
+
 @media screen and (max-width: 992px) {
   .background-section {
     background: none;

@@ -83,7 +83,10 @@
   </div>
 
   <div class="video-container">
-    <video controls style="width: 100%; border: 1px solid #1B3C6C;" poster="{% static './images/projects/gv iv.jpg' %}">
+    <p class="play__btn">
+      <i class="ri-play-circle-fill" id="playButton" onclick="togglePlay()"></i>
+    </p>
+    <video id="myVideo" controls style="width: 100%; border: 1px solid #1B3C6C;" poster="{% static './images/projects/gv iv.jpg' %}">
       <source src="{% static './assets/video/acrs&glass1.mp4' %}" type="video/mp4" style="width: 100%" />
     </video>
   </div>

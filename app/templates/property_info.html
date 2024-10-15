@@ -48,6 +48,16 @@
         <p>{{ property.description }}</p>
       </div>
     </div>
+    {% if property.property_amenities.count < 1 %}
+      <h2>No Amenities Specified</h2>
+    {% else %}
+      <h2>Amenities</h2>
+      <div class="amenities">
+        {% for amenity in property.property_amenities.all %}
+          <div>{{ amenity.amenity }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </section>
 
   {% block script %}
