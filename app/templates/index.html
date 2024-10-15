@@ -2,98 +2,105 @@
 {% load static %}
 {% load custom_tags %}
 {% block head %}
-  <title>HOME || ARCS N GLASS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-  <link rel="stylesheet" href="{% static './assets/css/index.css' %}" />
+<title>HOME || ARCS N GLASS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<link rel="stylesheet" href="{% static './assets/css/index.css' %}" />
 {% endblock %}
 {% block content %}
-  <div class="carousel-item">
-    {% for carousel in carousels %}
-      <section class="about-section">
-        <div class="overlay"></div>
-        <img src="{{ carousel.cover_photo }}" alt="About Us Background" class="background-img" loading="lazy" />
-        <div class="content">
-          <h1>{{ carousel.heading }}</h1>
-          <p>{{ carousel.description }}</p>
-          <a href="{{ carousel.redirect_link }}">{{ carousel.redirect_text }}</a>
-        </div>
-      </section>
+<div class="carousel-item">
+  {% for carousel in carousels %}
+  <section class="about-section">
+    <div class="overlay"></div>
+    <img src="{{ carousel.cover_photo }}" alt="About Us Background" class="background-img" loading="lazy" />
+    <div class="content">
+      <h1>{{ carousel.heading }}</h1>
+      <p>{{ carousel.description }}</p>
+      <a href="{{ carousel.redirect_link }}">{{ carousel.redirect_text }}</a>
+    </div>
+  </section>
+  {% endfor %}
+</div>
+
+<div class="about-container">
+  <div class="text-section">
+    <p>{{intro_text.description}}</p>
+    <a href="{% url 'projects' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a>
+  </div>
+  <div class="image-section">
+    <img src="{{ intro_text.cover_photo.url }}" alt="Intro Image" />
+  </div>
+</div>
+
+<div class="latest_header">
+  <p>Latest Projects</p>
+</div>
+<div class="background-section">
+  <div class="cards-container">
+    <div class="empty-div"></div>
+    {% for _ in empty_slots_range %}
+    <div class="empty-div"></div>
+    {% endfor %}
+
+    {% for project in latest_projects %}
+    {% if forloop.counter|is_even %}
+    <div class="card card{{forloop.counter}}" style="background-color: #e8e9e9"
+      onclick="window.location.replace('{% url " project_info" project.slug %}')">
+      <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
+      <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
+    </div>
+    {% else %}
+    <div class="card card{{forloop.counter}}" style="background-color: #1b3c6c; color: white"
+      onclick="window.location.replace('{% url " project_info" project.slug %}')">
+      <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
+      <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
-
-  <div class="about-container">
-    <div class="text-section">
-      <p>{{intro_text.description}}</p>
-      <a href="{% url 'projects' %}" class="read-more-btn"><span class="btn-icon">➤</span> Read more</a>
-    </div>
-    <div class="image-section">
-      <img src="{{ intro_text.cover_photo.url }}" alt="Intro Image" />
-    </div>
-  </div>
-
-  <div class="latest_header">
-    <p>Latest Projects</p>
-  </div>
-  <div class="background-section">
-    <div class="cards-container">
-      <div class="empty-div"></div>
-      {% for _ in empty_slots_range %}
-        <div class="empty-div"></div>
-      {% endfor %}
-
-      {% for project in latest_projects %}
-      {% if forloop.counter|is_even %}
-      <div class="card card{{forloop.counter}}" style="background-color: #e8e9e9" onclick="window.location.replace('{% url "project_info" project.slug %}')">
-        <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
-        <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
+  <div class="mobile-cards-container">
+    {% for project in latest_projects %}
+    <div class="dropdown__group">
+      <div class="dropdown__icon">
+        <img src="{{project.project_images.first.image.url}}" alt="{{project.name}}">
       </div>
-      {% else %}
-      <div class="card card{{forloop.counter}}" style="background-color: #1b3c6c; color: white" onclick="window.location.replace('{% url "project_info" project.slug %}')">
-        <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
-        <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
-      </div>
-      {% endif %}
-      {% endfor %}
-    </div>
-    <div class="mobile-cards-container">
-      {% for project in latest_projects %}
-      <div class="dropdown__group">
-        <div class="dropdown__icon">
-          <img src="{{project.project_images.first.image.url}}" alt="{{project.name}}">
-        </div>
-        
-        <div id="content">
-          <span class="dropdown__title">{{project.name}}</span>
-          <p>
-            {{project.description|truncatechars:150}}
-          </p>
-          <button>
-            <a href="{% url 'project_info' project.slug %}" class="read-more-btn">
-              <span class="btn-icon">➤</span> Read more
-            </a>
-          </button>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
 
-  <div class="video-container">
-    <p class="play__btn">
-      <i class="ri-play-circle-fill" id="playButton" onclick="togglePlay()"></i>
-    </p>
-    <video id="myVideo" controls style="width: 100%; border: 1px solid #1B3C6C;" poster="{% static './images/projects/gv iv.jpg' %}">
-      <source src="{% static './assets/video/acrs&glass1.mp4' %}" type="video/mp4" style="width: 100%" />
-    </video>
+      <div id="content">
+        <span class="dropdown__title">{{project.name}}</span>
+        <p>
+          {{project.description|truncatechars:150}}
+        </p>
+        <button>
+          <a href="{% url 'project_info' project.slug %}" class="read-more-btn">
+            <span class="btn-icon">➤</span> Read more
+          </a>
+        </button>
+      </div>
+    </div>
+    {% endfor %}
   </div>
+</div>
 
-  {% block scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="{% static './assets/js/index.js' %}"></script>
-  {% endblock %}
+<div class="video-container">
+  <p class="play__btn">
+    <i class="ri-play-circle-fill" id="playButton" onclick="togglePlay()"></i>
+  </p>
+  <video id="myVideo" controls style="width: 100%; border: 1px solid #1B3C6C;"
+    poster="{% static './images/projects/gv iv.jpg' %}">
+    <source src="{% static './assets/video/acrs&glass1.mp4' %}" type="video/mp4" style="width: 100%" />
+  </video>
+</div>
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+  integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="{% static './assets/js/index.js' %}"></script>
+{% endblock %}
 {% endblock %}

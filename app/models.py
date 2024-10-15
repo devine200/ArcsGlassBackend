@@ -19,6 +19,7 @@ class LandingPageProjectsIntro(models.Model):
     
     def __str__(self):
         return "Landing Page Intro Text"
+    
 class Project(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(unique=True, max_length=255)
@@ -40,7 +41,7 @@ class ProjectImage(models.Model):
     def __str__(self):
         return f"{self.project.name} Project Image \t\t[{self.image.name}]"
 
-HOME_UNIT_CHOICES = [("APARTMENT", "apartment"), ("duplex", "DUPLEX")]
+HOME_UNIT_CHOICES = [("COMMERCIAL", "commercial"), ("residential", "RESIDENTIAL")]
 class Property(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
