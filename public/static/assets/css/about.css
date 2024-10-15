@@ -1,0 +1,214 @@
+
+
+.about-section {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.7); 
+}
+
+.content {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    z-index: 2;
+}
+
+.content h1 {
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 team members per row */
+    gap: 20px;
+    padding: 20px;
+    margin: 120px 0px;
+}
+
+.team-member {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-left: 1px;
+    margin-right: 1px;
+    box-shadow: 0 1px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+    width: 100%;
+    border-bottom: 2px solid #ddd;
+}
+
+.team-member-name {
+    font-size: 25px;
+}
+
+.team-member h3,
+.team-member p {
+    padding: 10px;
+    text-align: left;
+}
+
+.team-member p {
+    margin: 0px 0px 10px 25px;
+}
+
+/* Centralized member details section for large screens */
+.member-details {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    display: none;
+    /* Initially hidden */
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.member-details.active {
+    display: block;
+}
+
+/* Blur effect when a member is clicked */
+.team-grid.blurred .team-member:not(.active) {
+    opacity: 0.9;
+    filter: blur(5px);
+}
+
+.team-member.active {
+    opacity: 1;
+}
+
+.team-grid.blurred .team-member:not(.active) {
+    opacity: 0.3;
+    filter: blur(3px);
+}
+
+.dynamic-details {
+    grid-column: 1 / -1;
+    padding: 20px;
+    margin: 10px 0px 70px 0px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.dynamic-details h1 {
+    font-size: 40px;
+}
+
+.dynamic-details h4 {
+    font-size: 25px;
+    font-weight: normal;
+    color: var(--second-color);
+}
+
+.team-member-info {
+    line-height: 2;
+}
+
+.rotate-icon {
+    transform: rotate(180deg);
+}
+
+.about-bg-text{
+    color: white;
+    font-size: 14px;
+    width: 85%;
+}
+
+
+
+@media (max-width: 992px) {
+    .team-grid {
+        display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    }
+    .member-details {
+        display: none !important;
+    }
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        /* 1 team member per row on small screens */
+    }
+
+    /* Hide the centralized details section on small screens */
+    .member-details {
+        display: none !important;
+    }
+
+    /* Keep the blur effect on small screens */
+    .team-grid.blurred .team-member:not(.active) {
+        opacity: 0.3;
+        filter: blur(5px);
+    }
+
+    /* Dynamic injected details on small screens */
+    .team-member+.dynamic-details {
+        display: none;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .team-member.active+.dynamic-details {
+        display: block;
+    }
+
+    .dynamic-details h1 {
+        font-size: 30px;
+    }
+    
+    .dynamic-details h4 {
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .team-member-info {
+        margin: 20px 0px;
+    }
+
+
+}
+
+@media screen and (max-width: 576px){
+    .content h1{
+        font-size: 2rem;
+    }
+
+    .about-section{
+        height: 50vh;
+    }
+
+    .about-bg-text{
+        display: none;
+    }
+}
