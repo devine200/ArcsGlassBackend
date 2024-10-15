@@ -57,10 +57,17 @@ class Property(models.Model):
     def __str__(self):
         return self.name
     
+    
+class PropertyAmenity(models.Model):
+    property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="property_amenities")
+    amenity = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return f"{property.name.capitalize()}'s Amenity: {self.amenity}"
 
 class PropertyImage(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="property_images")
-    image = models.ImageField(upload_to="https://meet.google.com/ife-dtmv-ijdproperty")
+    image = models.ImageField(upload_to="property")
     
     def __str__(self):
         return f"{self.property.name} Property Image \t\t[{self.image.name}]"
