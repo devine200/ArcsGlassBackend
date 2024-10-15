@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../ArcsGlass"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ArcsGlass"
+	}
+}
