@@ -50,13 +50,13 @@
     {% for project in latest_projects %}
     {% if forloop.counter|is_even %}
     <div class="card card{{forloop.counter}}" style="background-color: #e8e9e9"
-      onclick="window.location.replace('{% url " project_info" project.slug %}')">
+      onclick="window.location.replace('{% url "project_info" project.slug %}')">
       <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
       <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
     </div>
     {% else %}
     <div class="card card{{forloop.counter}}" style="background-color: #1b3c6c; color: white"
-      onclick="window.location.replace('{% url " project_info" project.slug %}')">
+      onclick="window.location.replace('{% url "project_info" project.slug %}')">
       <h3 style="text-transform: uppercase; padding-bottom; 15px;">{{ project.name }}</h3>
       <p style="text-align: center;">{{ project.description|truncatechars:100 }}</p>
     </div>

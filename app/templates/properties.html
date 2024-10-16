@@ -68,7 +68,11 @@
       <div class="card-container">
         {% for property in properties %}
           <a href="{% url 'property_info' property.slug %}" class="card">
-            <img src="{{ property.property_images.first.image.url }}" alt="{{ property.name }}" class="card-img" />
+            {% if property.property_images.count > 0 %}
+              <img src="{{ property.property_images.first.image.url }}" alt="{{ property.name }}" class="card-img" />
+            {% else %}
+              <img src="{% static 'assets/image/default.jpg' %}" alt="{{ property.name }}" class="card-img" />
+            {% endif %}
             <div class="card-content">
               <p>₦{{ property.price|format_amount }}</p>
               <h3 style="text-transform: capitalize;">{{ property.name }}</h3>

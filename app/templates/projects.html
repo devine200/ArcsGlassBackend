@@ -16,13 +16,17 @@
   <div class="card-container">
     <!-- Card 1 -->
     {% for project in projects %}
-    <a href="{% url 'project_info' project.slug %}" class="card">
-      <img src="{{ project.project_images.first.image.url }}" alt="{{ project.name }}" />
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h3 style="text-transform: uppercase;">{{ project.name }}</h3>
-      </div>
-    </a>
+      <a href="{% url 'project_info' project.slug %}" class="card">
+        {% if project.project_images.count > 0 %}
+          <img src="{{ project.project_images.first.image.url }}" alt="{{ project.name }}">
+        {% else %}
+          <img src="{% static 'assets/image/default.jpg' %}" alt="{{ project.name }}" />
+        {% endif %}
+        <div class="overlay"></div>
+        <div class="card-content">
+          <h3 style="text-transform: uppercase;">{{ project.name }}</h3>
+        </div>
+      </a>
     {% endfor %}
   </div>
 {% endblock %}

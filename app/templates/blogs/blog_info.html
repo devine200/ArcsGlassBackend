@@ -47,7 +47,7 @@
           <div role="list" class="pro-col__list w-dyn-items">
             <div role="listitem" class="pro-col__item w-dyn-item">
               <div class="row blog-dets">
-                <div class="col-6 blog-dets-one">
+                {% comment %} <div class="col-6 blog-dets-one">
                   <div>
                     <h3 class="h5">Client</h3>
                     <p class="u-mb-0">{{ blog.client }}</p>
@@ -64,8 +64,8 @@
                     <h3 class="h5">Collaborators</h3>
                     <p class="u-mb-0">{{ blog.collaborators }}</p>
                   </div>
-                </div>
-                <div class="col-6 blog-dets-info">
+                </div> {% endcomment %}
+                <div class="col-12 blog-dets-info">
                   <div class="">
                     <p>
                       {{ blog.description_top }}

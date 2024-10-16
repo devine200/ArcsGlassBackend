@@ -12,7 +12,11 @@
 {% block content %}
   <section class="project-section">
     <div class="overlay"></div>
-    <img src="{{ project.project_images.first.image.url }}" alt="About Us Background" class="background-img" />
+    {% if project.project_images.count > 0 %}
+      <img src="{{ project.project_images.first.image.url }}" alt="About Us Background" class="background-img" />
+    {% else %}
+      <img src="{% static 'assets/image/default.jpg' %}" alt="About Us Background" class="background-img" />
+    {% endif %}
     <div class="content">
       <h1 style="text-transform: uppercase;">{{ project.name }}</h1>
     </div>

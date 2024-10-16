@@ -26,7 +26,11 @@
               {% for project in nav_latest_projects %}
                 <div class="dropdown__group">
                   <div class="dropdown__icon">
-                    <img src="{{ project.project_images.first.image.url }}" alt="" />
+                    {% if project.project_images.count > 0 %}
+                      <img src="{{ project.project_images.first.image.url }}" alt="" />
+                    {% else %}
+                      <img src="{% static 'assets/image/default.jpg' %}" alt="{{ project.name }}" />
+                    {% endif %}
                   </div>
 
                   <span class="dropdown__title">{{ project.name }}</span>
@@ -48,7 +52,11 @@
               {% for property in nav_latest_properties %}
                 <div class="dropdown__group">
                   <div class="dropdown__icon">
-                    <img src="{{ property.property_images.first.image.url }}" alt="{{property.name}}" />
+                    {% if property.property_images.count > 0 %}
+                      <img src="{{ property.property_images.first.image.url }}" alt="{{ property.name }}" />
+                    {% else %}
+                      <img src="{% static 'assets/image/default.jpg' %}" alt="{{ property.name }}" />
+                    {% endif %}
                   </div>
 
                   <span class="dropdown__title">{{ property.name }}</span>

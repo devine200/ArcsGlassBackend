@@ -19,7 +19,11 @@
   <div class="gallery-container">
     <!-- Featured Image -->
     <div class="featured-image">
-      <img src="{{ property.property_images.first.image.url }}" alt="Featured Property" />
+      {% if property.property_images.count > 0 %}
+        <img src="{{ property.property_images.first.image.url }}" alt="Featured Property" />
+      {% else %}
+        <img src="{% static 'assets/image/default.jpg' %}" alt="Featured Property" />
+      {% endif %}
     </div>
 
     <!-- Thumbnails Section -->

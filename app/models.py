@@ -41,7 +41,7 @@ class ProjectImage(models.Model):
     def __str__(self):
         return f"{self.project.name} Project Image \t\t[{self.image.name}]"
 
-HOME_UNIT_CHOICES = [("COMMERCIAL", "commercial"), ("residential", "RESIDENTIAL")]
+HOME_UNIT_CHOICES = [("COMMERCIAL", "commercial"), ("RESIDENTIAL", "residential")]
 class Property(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
@@ -64,7 +64,7 @@ class PropertyAmenity(models.Model):
     amenity = models.CharField(max_length=50)
     
     def __str__(self):
-        return f"{property.name.capitalize()}'s Amenity: {self.amenity}"
+        return f"{self.property.name.capitalize()}'s Amenity: {self.amenity}"
 
 class PropertyImage(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="property_images")
