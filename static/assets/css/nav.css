@@ -296,6 +296,6 @@
 
 .dropdown__icon img{
   width: 300px;
-  height: auto;
+  height: 200px;
   object-fit: cover;
 }

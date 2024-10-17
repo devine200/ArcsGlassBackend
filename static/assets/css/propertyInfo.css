@@ -188,7 +188,9 @@
 } */
 
 .thumbnails img {
-    width: 100%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;

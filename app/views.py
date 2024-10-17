@@ -5,9 +5,12 @@ from app.models import (
     Project,
     Property,
     Blog,
+    BlogCarouselImage,
     TeamMember,
     LandingPageProjectsIntro,
-    ContactMessage
+    ContactMessage,
+    ProjectImage,
+    PropertyImage
 )
 
 
@@ -200,6 +203,7 @@ def blog_info(request, slug):
     site_info = SiteInfo.objects.first()
     nav_latest_projects = Project.objects.all().order_by("-created_at")[:3]
     nav_latest_properties = Property.objects.all().order_by("-created_at")[:3]
+    blog_carousel_images = BlogCarouselImage.objects.all()
     return render(
         request,
         "./blogs/blog_info.html",
@@ -208,5 +212,32 @@ def blog_info(request, slug):
             "nav_latest_projects": nav_latest_projects,
             "nav_latest_properties": nav_latest_properties,
             "blog": blog,
+            "blog_carousel_images": blog_carousel_images,
         },
     )
+
+def project_upload(request):
+    projects = Project.objects.all()
+    
+    if request.method == 'POST':
+        images = request.FILES.getlist('files')
+        name = request.POST.get("project_name")
+        
+        project = Project.objects.get(name=name)
+        for image in images:
+            ProjectImage.objects.create(project=project, image=image)
+    
+    return render(request, 'project_upload.html', {"projects": projects})
+
+def property_upload(request):
+    properties = Property.objects.all()
+    
+    if request.method == 'POST':
+        images = request.FILES.getlist('files')
+        name = request.POST.get("property_name")
+        
+        property = Property.objects.get(name=name)
+        for image in images:
+            PropertyImage.objects.create(property=property, image=image)
+    
+    return render(request, 'property_upload.html', {"properties": properties})

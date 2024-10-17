@@ -28,7 +28,7 @@
 
     <!-- Thumbnails Section -->
     <div class="thumbnails">
-      {% for property_image in property.property_images.all %}
+      {% for property_image in property.property_images.all|slice:15 %}
         <a href="{{ property_image.image.url }}" data-lightbox="image-1" class="gallery-item w-inline-block w-lightbox"><img src="{{ property_image.image.url }}" alt="" class="{{ property_image.property.name }}" /></a>
       {% endfor %}
     </div>

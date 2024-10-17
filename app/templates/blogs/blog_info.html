@@ -17,7 +17,7 @@
         <div role="list" class="pro-col__list w-dyn-items">
           <div role="listitem" class="pro-col__item w-dyn-item">
             <div id="project-hero" style="
-                      background-image: url('{{blog.blog_images.first.image.url}}');
+                      background-image: url('{{blog.cover_photo.url}}');
                     " class="project-hero">
               <div class="project-hero__title-wrapper">
                 <h1 data-w-id="3e570c8d-d9f1-afba-7cba-56ba8ddc2ca3" style="
@@ -47,31 +47,10 @@
           <div role="list" class="pro-col__list w-dyn-items">
             <div role="listitem" class="pro-col__item w-dyn-item">
               <div class="row blog-dets">
-                {% comment %} <div class="col-6 blog-dets-one">
-                  <div>
-                    <h3 class="h5">Client</h3>
-                    <p class="u-mb-0">{{ blog.client }}</p>
-                  </div>
-                  <div>
-                    <h3 class="h5">Location</h3>
-                    <p class="u-mb-0">{{ blog.location }}</p>
-                  </div>
-                  <div>
-                    <h3 class="h5">Scope</h3>
-                    <p class="u-mb-0">{{ blog.scope }}</p>
-                  </div>
-                  <div>
-                    <h3 class="h5">Collaborators</h3>
-                    <p class="u-mb-0">{{ blog.collaborators }}</p>
-                  </div>
-                </div> {% endcomment %}
-                <div class="col-12 blog-dets-info">
-                  <div class="">
-                    <p>
-                      {{ blog.description_top }}
-                    </p>
-                    <p>{{ blog.description_bottom }}</p>
-                  </div>
+                <div class="blog-dets-info" style="width: 80%; margin: auto;">
+                  <p>
+                    {{ blog.description_rendered | safe }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -89,7 +68,7 @@
                     %3Cdiv%20role%3D%22listitem%22%20class%3D%22swiper-slide%20cc-proj-intro%20w-dyn-item%20w-dyn-repeater-item%22%3E%3Cdiv%20class%3D%22swiper__img-wrapper%22%3E%3Cimg%20src%3D%22https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy.jpg%22%20loading%3D%22lazy%22%20alt%3D%22%22%20sizes%3D%22(max-width%3A%20479px)%2093vw%2C%20(max-width%3A%20767px)%2048vw%2C%20(max-width%3A%20991px)%2047vw%2C%20100vw%22%20srcset%3D%22https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy-p-500.jpg%20500w%2C%20https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy-p-800.jpg%20800w%2C%20https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy-p-1080.jpg%201080w%2C%20https%3A%2F%2Fcdn.prod.website-files.com%2F65d47a27737b661f8342f492%2F65e58dd92830c2a94d489cd4_615A6172%2520copy.jpg%201371w%22%20class%3D%22swiper__img%22%2F%3E%3C%2Fdiv%3E%3C%2Fdiv%3E
                   </script>
             <div role="list" class="swiper-wrapper cc-proj-slider w-dyn-items">
-              {% for blog_image in blog.blog_images.all %}
+              {% for blog_image in blog_carousel_images %}
               <div role="listitem" class="swiper-slide cc-proj-intro w-dyn-item w-dyn-repeater-item">
                 <div class="swiper__img-wrapper">
                   <img src="{{blog_image.image.url}}" class="swiper__img" />

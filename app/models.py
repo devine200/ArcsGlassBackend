@@ -1,6 +1,8 @@
 from django.db import models
-from django.utils.text import slugify
 from uuid import uuid4
+
+from markdownfield.models import MarkdownField, RenderedMarkdownField
+from markdownfield.validators import VALIDATOR_STANDARD
 
 class LandingPageCarousel(models.Model):
     cover_photo = models.ImageField(upload_to="landing")
@@ -77,24 +79,25 @@ class PropertyImage(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(unique=True, max_length=255)
-    client = models.CharField(max_length=30)
-    location = models.CharField(max_length=100)
-    scope = models.CharField(max_length=100)
-    collaborator = models.CharField(max_length=100)
-    description_top = models.TextField()
-    description_bottom = models.TextField()
+    description = MarkdownField(rendered_field='description_rendered', validator=VALIDATOR_STANDARD)
+    description_rendered = RenderedMarkdownField()
+    cover_photo = models.ImageField(upload_to="blog")
     
     def __str__(self):
         return self.title
     
-    
-    
 class BlogImage(models.Model):
-    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="blog_images")
+    image = models.ImageField(upload_to="blog_post")
+    
+    def __str__(self):
+        return f"Blog Post: [{self.image.name}]"
+
+    
+class BlogCarouselImage(models.Model):
     image = models.ImageField(upload_to="blog")
     
     def __str__(self):
-        return f"{self.blog.title} Blog Image [{self.image.name}]"
+        return f"Blog Carousel Image [{self.image.name}]"
     
 class SiteInfo(models.Model):
     address = models.CharField(max_length=255)
