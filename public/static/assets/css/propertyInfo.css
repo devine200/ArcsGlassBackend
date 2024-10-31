@@ -1,10 +1,14 @@
 .property-section {
     position: relative;
     width: 100%;
-    height: 50vh; /* Adjust based on your need */
+    height: 45vh; /* Adjust based on your need */
     overflow: hidden;
     background-color: #e7e7e7d3;
     color: #1B3C6C !important;
+}
+
+.property-section h2 {
+    font-size: 35px;
 }
 
 .background-img {
@@ -140,6 +144,10 @@
     .card-img {
         height: 180px; /* Reduce image height on mobile */
     }
+
+    .property-section h2 {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -160,9 +168,9 @@
 
 
 .gallery-container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
 }
 
 /* Featured image styling */

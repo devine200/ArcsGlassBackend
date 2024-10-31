@@ -30,7 +30,7 @@
 }
 .nav__toggle-menu, .nav__toggle-close {
   font-size: 1.25rem;
-  color: white;
+  color: var(--arc-blue);
   position: absolute;
   display: grid;
   place-items: center;
@@ -43,7 +43,7 @@
 }
 @media screen and (max-width: 1118px) {
   .nav__menu {
-    background-color: #1b3c6c;
+    background-color: white;
     position: absolute;
     left: 0;
     top: 2.5rem;
@@ -63,7 +63,7 @@
   }
 }
 .nav__link {
-  color: white;
+  color: #1b3c6c;
   padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;

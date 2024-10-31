@@ -130,3 +130,7 @@ class TeamMember(models.Model):
     
     def __str__(self):
         return f"Team {self.position.capitalize()}: {self.name.capitalize()}"
+    
+class MultiUploadActivation(models.Model):
+    is_active = models.BooleanField(default=False)
+    

@@ -30,6 +30,10 @@ select {
     background-image: none;
 }
 
+.nav__data img{
+    filter: invert(1);
+}
+
 html.lenis {
     height: auto;
 }
@@ -65,12 +69,13 @@ html.lenis {
     color: var(--title-color);
     padding: 10px 20px 0px 20px;
     min-height: 100px;
+    font-size: 20px;
 }
 
 .blog-title {
     color: var(--title-color);
     font-size: 30px;
-    padding: 20px;
+    padding: 10px 20px 0px 20px;
 }
 
 
