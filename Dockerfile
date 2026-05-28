@@ -2,7 +2,9 @@ FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    DJANGO_SQLITE_PATH=/app/data/db.sqlite3 \
+    DJANGO_STATIC_ROOT=/app/staticfiles
 
 WORKDIR /app
 
@@ -20,8 +22,8 @@ COPY . .
 
 EXPOSE 8000
 
-# Ensure static root exists (collectstatic can write here)
-RUN mkdir -p public/static
+# Ensure scripts are executable
+RUN chmod +x /app/entrypoint.sh
 
-CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn demo.wsgi:application --bind 0.0.0.0:8000"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 

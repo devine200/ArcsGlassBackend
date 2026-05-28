@@ -1,6 +1,7 @@
 Django==5.1.1
 django-markdownfield==0.11.0
 Pillow==10.4.0
+whitenoise==6.7.0
 
 # Production server (used by Docker image)
 gunicorn==22.0.0

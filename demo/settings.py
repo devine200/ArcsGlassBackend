@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from os import path
+from os import environ, path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,13 +20,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
+def _env_bool(name: str, default: bool) -> bool:
+    val = environ.get(name)
+    if val is None:
+        return default
+    return val.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+def _env_csv(name: str, default: list[str]) -> list[str]:
+    raw = environ.get(name)
+    if raw is None:
+        return default
+    items = [x.strip() for x in raw.split(",")]
+    return [x for x in items if x]
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'j,K)fD&*t;BgCvTs}k?KkRBe,+.g[5Dt1*@zF:DY=V&PXr9NRX'
+SECRET_KEY = environ.get("DJANGO_SECRET_KEY", "dev-insecure-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = _env_bool("DJANGO_DEBUG", True)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = _env_csv("DJANGO_ALLOWED_HOSTS", ["*"])
 
 
 # Application definition
@@ -44,6 +59,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,7 +96,9 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':path.join(BASE_DIR, 'db.sqlite3'),
+        # In production (Hostinger Docker Manager), mount a named volume to /app/data
+        # so SQLite persists across redeploys.
+        'NAME': environ.get("DJANGO_SQLITE_PATH", path.join(BASE_DIR, "db.sqlite3")),
     }
 }
 
@@ -125,11 +143,13 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_ROOT = path.join(BASE_DIR, 'public/static')
+STATIC_ROOT = environ.get("DJANGO_STATIC_ROOT", "/app/staticfiles")
 STATICFILES_DIRS = [path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = path.join(BASE_DIR, "media")
 
 SITE_URL = "https://arcsnglass.com"
+
+CSRF_TRUSTED_ORIGINS = _env_csv("DJANGO_CSRF_TRUSTED_ORIGINS", [])
 
