@@ -99,6 +99,9 @@ DATABASES = {
         # In production (Hostinger Docker Manager), mount a named volume to /app/data
         # so SQLite persists across redeploys.
         'NAME': environ.get("DJANGO_SQLITE_PATH", path.join(BASE_DIR, "db.sqlite3")),
+        'OPTIONS': {
+            'timeout': int(environ.get("DJANGO_SQLITE_TIMEOUT", "20")),
+        },
     }
 }
 
@@ -145,6 +148,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = environ.get("DJANGO_STATIC_ROOT", "/app/staticfiles")
 STATICFILES_DIRS = [path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = path.join(BASE_DIR, "media")
@@ -152,4 +156,27 @@ MEDIA_ROOT = path.join(BASE_DIR, "media")
 SITE_URL = "https://arcsnglass.com"
 
 CSRF_TRUSTED_ORIGINS = _env_csv("DJANGO_CSRF_TRUSTED_ORIGINS", [])
+
+# When running behind a reverse proxy that terminates TLS (Hostinger / Cloudflare),
+# Django must trust the forwarded proto header to treat requests as HTTPS.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+# Enable these only when HTTPS is correctly configured end-to-end.
+SECURE_SSL_REDIRECT = _env_bool("DJANGO_SECURE_SSL_REDIRECT", False)
+SESSION_COOKIE_SECURE = _env_bool("DJANGO_SESSION_COOKIE_SECURE", False)
+CSRF_COOKIE_SECURE = _env_bool("DJANGO_CSRF_COOKIE_SECURE", False)
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": environ.get("DJANGO_LOG_LEVEL", "INFO"),
+    },
+}
 

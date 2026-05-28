@@ -2,17 +2,24 @@ services:
   web:
     build: .
     image: arcsglassbackend:latest
+    restart: unless-stopped
     ports:
       - "8000:8000"
     volumes:
       # Persist sqlite across redeploys (named volume)
       - sqlite_data:/app/data
-      # Persist uploaded media during local runs
-      - ./media:/app/media
+      # Persist uploaded media across redeploys (named volume)
+      - media_data:/app/media
     environment:
       - DJANGO_SETTINGS_MODULE=demo.settings
       - DJANGO_SQLITE_PATH=/app/data/db.sqlite3
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 volumes:
   sqlite_data:
+  media_data:
 
