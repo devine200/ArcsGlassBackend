@@ -17,7 +17,7 @@
   {% for carousel in carousels %}
   <section class="about-section">
     <div class="overlay"></div>
-    <img src="{{ carousel.cover_photo }}" alt="About Us Background" class="background-img" loading="lazy" />
+    <img src="{{ carousel.cover_photo.url }}" alt="About Us Background" class="background-img" loading="lazy" />
     <div class="content">
       <h1>{{ carousel.heading }}</h1>
       <p>{{ carousel.description }}</p>

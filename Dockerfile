@@ -18,8 +18,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project (includes db.sqlite3)
+# Copy project (includes db.sqlite3 and media/)
 COPY . .
+
+# Bundle media at /app/media_seed (runtime uses volume at /app/media)
+RUN mkdir -p /app/media_seed && \
+    if [ -d /app/media ] && [ -n "$(ls -A /app/media 2>/dev/null)" ]; then \
+      cp -a /app/media/. /app/media_seed/ && rm -rf /app/media; \
+    fi
 
 EXPOSE 8000
 

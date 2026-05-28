@@ -13,7 +13,6 @@ pip-wheel-metadata/
 .git/
 .gitignore
 
-media/
 staticfiles/
 public/static/
 

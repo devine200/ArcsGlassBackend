@@ -4,7 +4,7 @@ services:
     image: arcsglassbackend:latest
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "80:8000"
     volumes:
       # Persist sqlite across redeploys (named volume)
       - sqlite_data:/app/data
