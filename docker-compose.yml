@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    image: arcsglassbackend:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      # Use the exact sqlite database file from the repo
+      - ./db.sqlite3:/app/db.sqlite3
+      # Persist uploaded media during local runs
+      - ./media:/app/media
+    environment:
+      - DJANGO_SETTINGS_MODULE=demo.settings
+

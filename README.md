@@ -37,3 +37,14 @@ python manage.py runserver
 The above command spawns a project server at [http://localhost:8000](http://localhost:8000)
 
 This project can currently be found live [here](https://arcsnglass.com)
+
+### DOCKER SETUP
+
+#### BUILD + RUN (DOCKER COMPOSE)
+This uses the repo's existing `db.sqlite3` file (bind-mounted into the container).
+
+```bash
+docker compose up --build
+```
+
+The app will be available at [http://localhost:8000](http://localhost:8000)
